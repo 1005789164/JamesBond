@@ -25,13 +25,11 @@ public class MyApp extends Application {
         return context;
     }
 
-    public  Handler handler = new Handler(){
+    public static Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            if(msg.what==200){
-                Toast.makeText(getApplicationContext(),"网络错误",Toast.LENGTH_SHORT).show();
-            }
+
         }
     };
     public String Ip;
