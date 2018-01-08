@@ -7,10 +7,12 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -37,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
 
     private FragmentTransaction transaction;
     private FrameLayout fl_main;
+    public Toolbar toolbar;
+    public TextView tv_tb_title;
+    public ImageView iv_tb_icon;
 
 
     @Override
@@ -44,16 +49,31 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        initView();
         initMenu();
+        initToolbar();
+        initView();
     }
+
+    private void initToolbar() {
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        tv_tb_title = (TextView) findViewById(R.id.tv_tb_title);
+        iv_tb_icon = (ImageView) findViewById(R.id.iv_tb_icon);
+
+        iv_tb_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                slidingMenu.toggle();
+            }
+        });
+    }
+
 
     private void initView() {
         fl_main = (FrameLayout) findViewById(R.id.fl_main);
 
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         transaction = supportFragmentManager.beginTransaction();
-        transaction.replace(R.id.fl_main,new Fragment_1(),"0");
+        transaction.replace(R.id.fl_main,new Fragment_1(MainActivity.this),"0");
         transaction.commit();
     }
 
@@ -78,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (position) {
                     case 0:
                         //overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out); //系统自带淡入淡出效果
-                        transaction1.replace(R.id.fl_main,new Fragment_1(),"car");
+                        transaction1.replace(R.id.fl_main,new Fragment_1(MainActivity.this),"car");
                         break;
                     case 1:
                         transaction1.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);//系统自带左向右滑入效果
@@ -110,6 +130,8 @@ public class MainActivity extends AppCompatActivity {
             return convertView;
         }
     }
+
+
 
 
 }

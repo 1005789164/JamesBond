@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.Toolbar android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/toolbar"
     android:background="@color/colorPrimary"
+    app:theme="@style/toolbar_style"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <ImageView
+        android:src="@drawable/menu"
         android:id="@+id/iv_tb_icon"
         android:layout_width="40dp"
         android:layout_height="40dp" />

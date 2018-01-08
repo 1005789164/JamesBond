@@ -4,12 +4,20 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
+import android.widget.Toast;
 
 /**
  * Created by Administrator on 2018/1/8.
  */
 
 public class MyApp extends Application {
+    private  static MyApp myApp;
+    public static MyApp getInstance(){
+        if(myApp==null){
+            myApp = new MyApp();
+        }
+        return myApp;
+    }
 
     private Context context;
 
@@ -17,11 +25,13 @@ public class MyApp extends Application {
         return context;
     }
 
-    public static Handler handler = new Handler(){
+    public  Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-
+            if(msg.what==200){
+                Toast.makeText(getApplicationContext(),"网络错误",Toast.LENGTH_SHORT).show();
+            }
         }
     };
     public String Ip;
