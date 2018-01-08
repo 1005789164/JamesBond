@@ -93,11 +93,11 @@ public class Fragment_9 extends Fragment {
         bt_sos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse("tel:4005326");
+                Uri uri = Uri.parse("tel:10010");
                 getCallPer(uri);
-                String number = "4005326";
+                String number = "10010";
                 String text = "我在“" + gpsLatitude + ":" + gpsLongitude + "”，请速来定损，谢谢！";
-                getSmsPermissions(number, text);
+                //getSmsPermissions(number, text);
             }
         });
     }
@@ -106,9 +106,9 @@ public class Fragment_9 extends Fragment {
         bt_dj.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse("tel:13757621568");
+                Uri uri = Uri.parse("tel:10010");
                 getCallPer(uri);
-                String number = "13757621568";
+                String number = "10010";
                 String text = "我在“" + gpsLongitude + ":" + gpsLongitude + "”，请赶到此位置代驾";
                 getSmsPermissions(number, text);
             }
