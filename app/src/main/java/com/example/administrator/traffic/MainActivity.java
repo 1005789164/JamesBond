@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         slidingMenu.setAboveOffset(SlidingMenu.LEFT);
         slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
         slidingMenu.setMenu(R.layout.menu_layout);
+
    //11111
         lv_menu = (ListView) findViewById(R.id.lv_menu);
         lv_menu.setAdapter(new MyAdapter<String>(new ArrayList<String>(Arrays.asList(arrTitle))));

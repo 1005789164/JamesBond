@@ -4,6 +4,7 @@
     android:layout_height="match_parent">
 <TextView
     android:text="111111111111111111111"
+    android:id="@+id/tv_test1"
     android:layout_width="match_parent"
     android:layout_height="match_parent" />
 </LinearLayout>
