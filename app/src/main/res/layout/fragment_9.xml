@@ -1,13 +1,44 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
     tools:context="com.example.administrator.traffic.fragment.Fragment_9">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
 
-</FrameLayout>
+        >
+        <Button
+            android:id="@+id/bt_sos"
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="一键救援"
+            android:textSize="50dp"
+            android:drawableLeft="@android:drawable/ic_menu_mylocation"
+
+            />
+        <Button
+            android:id="@+id/bt_dj"
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="一键代驾"
+            android:textSize="50dp"
+            android:drawableLeft="@android:drawable/ic_menu_myplaces"
+            />
+    </LinearLayout>
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:textSize="30sp"
+        android:text="1.点击“一键救援”自动呼叫保险公司并发送定位经纬度\n\n2.点击“一键代驾”自动呼叫指定的代驾司机\n\n3.自动呼叫号码可以通过右上角的号码设置菜单设置号码\n\n注：此GPS数据为模拟数据，当APP运行在真实且联网的机器上时可获取真实的实时位置"/>
+</LinearLayout>

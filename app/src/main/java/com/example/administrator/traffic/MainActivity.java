@@ -88,10 +88,11 @@ public class MainActivity extends AppCompatActivity {
                         transaction1.replace(R.id.fl_main,new Fragment_3(),"light");
                         break;
                     case 8:
-                        transaction1.replace(R.id.fl_main,new Fragment_9(),"origina");
+                        transaction1.replace(R.id.fl_main,new Fragment_9(MainActivity.this.getSystemService(MainActivity.this.getApplicationContext().LOCATION_SERVICE)),"origina");
                         break;
                 }
                 transaction1.commit();
+                slidingMenu.toggle();
             }
         });
     }

@@ -70,7 +70,7 @@ public class HttpHelper {
                 Log.e("http","获取数据"+getWebContext());
             }
         } catch (Exception e) {
-            MyApp.handler.sendEmptyMessage(404);
+           // MyApp.handler.sendEmptyMessage(404);
             e.printStackTrace();
         }
         return code;

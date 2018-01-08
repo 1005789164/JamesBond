@@ -17,13 +17,13 @@ public class MyApp extends Application {
         return context;
     }
 
-    public static Handler handler = new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-
-        }
-    };
+//    public static Handler handler = new Handler(){
+//        @Override
+//        public void handleMessage(Message msg) {
+//            super.handleMessage(msg);
+//
+//        }
+//    };
     public String Ip;
     public String Url ;
     public String getIp() {

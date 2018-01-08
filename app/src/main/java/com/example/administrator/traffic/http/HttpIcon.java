@@ -54,7 +54,7 @@ public class HttpIcon  {
                 obtain.obj=bitmap;
             }
         } catch (Exception e) {
-            MyApp.handler.sendEmptyMessage(404);
+           // MyApp.handler.sendEmptyMessage(404);
             e.printStackTrace();
         }
         handler.sendMessage(obtain);
