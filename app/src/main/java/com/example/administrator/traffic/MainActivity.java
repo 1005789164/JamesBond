@@ -18,6 +18,7 @@ import com.example.administrator.traffic.adapter.MyBaseAdapter;
 import com.example.administrator.traffic.fragment.Fragment_1;
 import com.example.administrator.traffic.fragment.Fragment_2;
 import com.example.administrator.traffic.fragment.Fragment_3;
+import com.example.administrator.traffic.fragment.Fragment_9;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
 import java.util.ArrayList;
@@ -84,6 +85,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 2:
                         transaction1.replace(R.id.fl_main,new Fragment_3(),"light");
+                        break;
+                    case 8:
+                        transaction1.replace(R.id.fl_main,new Fragment_9(),"origina");
                         break;
                 }
                 transaction1.commit();
