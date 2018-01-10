@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 public class MyApp extends Application {
     private  static MyApp myApp;
+    private static String userRole;
     public static MyApp getInstance(){
         if(myApp==null){
             myApp = new MyApp();
@@ -37,9 +38,12 @@ public class MyApp extends Application {
     public String getIp() {
         return Ip;
     }
-    public void setIp(String ip) {
-        Ip = ip;
+    public void setIp(String ip) {Ip = ip;}
+
+    public String getUserRole() {
+        return userRole;
     }
+    public void setUserRole(String userRole) { this.userRole= userRole;}
 
     public String getUrl() {
         return Url;
@@ -49,10 +53,10 @@ public class MyApp extends Application {
         Url = url;
     }
     public boolean checkIp(String ip){
-       String str = "^([1-9]\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|[1-9])\\."
-                + "^([1-9]\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\."
-               + "^([1-9]\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\."
-               + "^([1-9]\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)$";
+       String str = "^(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|[1-9])\\."
+                   + "(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\."
+                   + "(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\."
+                   + "(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)$";
         if(ip.matches(str)){
             return true;
         }else {

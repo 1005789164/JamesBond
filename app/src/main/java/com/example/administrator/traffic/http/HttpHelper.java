@@ -25,7 +25,6 @@ import java.net.URLConnection;
 
 public class HttpHelper {
     public static String  URL = "http://192.168.1.103:8080/transportservice/action/";
-    public static String Get_Sense = "GetAllSense.do";
 
 
     public static String webContext;
