@@ -109,6 +109,7 @@ public class LoginActivity extends AppCompatActivity {
             switch (v.getId()) {
                 case R.id.bt_login:
                     CheckOption();
+
                     isLogin();
                     break;
                 case R.id.bt_register:
@@ -133,7 +134,7 @@ public class LoginActivity extends AppCompatActivity {
         String user_pwd = SpUtil.getString(getApplicationContext(), "user_pwd", "");
         et_user_name.setText(user_name);
         et_user_pwd.setText(user_pwd);
-        if (!user_name.isEmpty()) {
+        if (!user_name.isEmpty()&&!user_pwd.isEmpty()) {
             cb_save_pwd.setChecked(true);
 
         }
@@ -184,6 +185,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (str.equals("s")) {
                         MyApp.getInstance().setUserRole(jsonObject.getString("UserRole"));
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        SpUtil.putString(getApplicationContext(), "user_name", et_user_name.getText().toString());
                         return;
                     }
                     Toast.makeText(LoginActivity.this, "用户名或密码错误！", Toast.LENGTH_SHORT).show();
