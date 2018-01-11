@@ -1,5 +1,6 @@
 package com.example.administrator.traffic.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -42,7 +43,7 @@ import java.util.Random;
 /**
  * Created by Administrator on 2018/1/7.
  */
-
+@SuppressLint("ValidFragment")
 public class Fragment_1 extends Fragment {
     private  MainActivity mainActivity;
     private String[] name = new String[]{
@@ -110,7 +111,6 @@ public class Fragment_1 extends Fragment {
     public Fragment_1(MainActivity mainActivity) {
         this.mainActivity=mainActivity;
     }
-
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
