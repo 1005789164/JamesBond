@@ -25,7 +25,6 @@ import com.example.administrator.traffic.R;
 import java.util.ArrayList;
 import java.util.Objects;
 
-@SuppressLint("ValidFragment")
 public class Fragment_9 extends Fragment {
     private Object str;
     Double gpsLatitude, gpsLongitude;

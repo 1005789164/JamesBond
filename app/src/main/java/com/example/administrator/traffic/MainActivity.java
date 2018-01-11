@@ -34,7 +34,7 @@ import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
-    private SlidingMenu slidingMenu;
+    public SlidingMenu slidingMenu;
     private ListView lv_menu;
     String[] arrTitle = new String[]{"车辆账户", "公交查询", "路灯管理", "路况查询", "车辆违章", "生活助手", "数据分析", "个人中心", "创意设计"};
     String[] arrLetter = new String[]{"C", "B", "L", "R", "P", "A", "D", "S", "O"};
