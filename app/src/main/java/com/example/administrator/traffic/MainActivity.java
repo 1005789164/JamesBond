@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                         transaction1.replace(R.id.fl_main,new Fragment_4(),"road");
                         break;
                     case 5:
-                        transaction1.replace(R.id.fl_main,new Fragment_6(slidingMenu),"life");
+                        transaction1.replace(R.id.fl_main,new Fragment_6(),"life");
                         break;
                     case 8:
                         transaction1.replace(R.id.fl_main,new Fragment_9(MainActivity.this.getSystemService(MainActivity.this.getApplicationContext().LOCATION_SERVICE)),"origina");
