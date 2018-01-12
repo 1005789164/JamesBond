@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    android:id="@+id/ll_people1"
+    android:id="@+id/ll_people_1"
     android:visibility="visible"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -31,6 +31,7 @@
             android:textSize="25sp"
             android:textColor="#000"/>
         <TextView
+            android:id="@+id/tv_people_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="XXX"
@@ -49,6 +50,7 @@
             android:textSize="25sp"
             android:textColor="#000"/>
         <TextView
+            android:id="@+id/tv_people_sex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="男"
@@ -67,6 +69,7 @@
             android:textSize="25sp"
             android:textColor="#000"/>
         <TextView
+            android:id="@+id/tv_people_phoneNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="13700000000"
@@ -85,12 +88,14 @@
     android:background="#ccc"
     android:gravity="center_vertical">
     <TextView
+        android:id="@+id/tv_people_idNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="身份证号：123456789123456789"
         android:textSize="25sp"
         android:textColor="#000"/>
     <TextView
+        android:id="@+id/tv_people_date"
         android:layout_marginLeft="150dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -127,6 +132,7 @@
                         android:layout_height="70dp"
                         android:background="@drawable/car_bm"/>
                     <TextView
+                        android:id="@+id/tv_people_carNumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="湘A 123456"

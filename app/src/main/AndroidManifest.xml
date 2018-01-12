@@ -38,7 +38,9 @@
         <activity android:name=".RegisterActivity" />
         <activity
             android:name=".GuideActiivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        </activity>
 
     </application>
 

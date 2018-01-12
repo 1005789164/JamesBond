@@ -38,23 +38,32 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //getSupportActionBar().setHomeAsUpIndicator(R.drawable.set);
+        //将net_menu菜单加载到toolbar中
         ((Toolbar)findViewById(R.id.toolbar)).inflateMenu(R.menu.net_menu);
+        //把set1这张图片设置到toolbar左上角的图标里
         ((ImageView)findViewById(R.id.iv_tb_icon)).setImageResource(R.drawable.set1);
+        //将toolbar的标题设为“用户登录”
         ((TextView)findViewById(R.id.tv_tb_title)).setText("用户登录");
-
+        //初始化控件
         initView();
         getUserInfo();
-
+        //设置toolbar的菜单监听
         ((Toolbar)findViewById(R.id.toolbar)).setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
+                //new一个dialog对象并创建dialog菜单
                 final AlertDialog dialog=new AlertDialog.Builder(LoginActivity.this).create();
+                //设置dialog标题
                 dialog.setTitle("IP设置");
+                //将dialog_setip布局加载给view变量
                 view=View.inflate(LoginActivity.this,R.layout.dialog_setip,null);
+                //将view设置进dialog
                 dialog.setView(view);
+                //显示dialog菜单
                 dialog.show();
+                //当sp里有数据时读取并显示在dialog的ExitView里
                 getIpInfo();
-
+                //对dialog菜单里的确定按钮进行监听
                 view.findViewById(R.id.bt_ip_ok).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -67,9 +76,12 @@ public class LoginActivity extends AppCompatActivity {
                         if(ip1.isEmpty()||ip2.isEmpty()||ip3.isEmpty()||ip4.isEmpty()){
                             Toast.makeText(LoginActivity.this,"IP地址不能为空！",Toast.LENGTH_SHORT).show();
                         }else {
+                            //检查ip合法性
                            boolean b= MyApp.getInstance().checkIp(str_ip);
                             if(b){
+                                //储存到sp
                                 SpUtil.putString(LoginActivity.this,"ip",str_ip);
+                                //关闭dialog
                                 dialog.dismiss();
                             }else {
                                 Toast.makeText(LoginActivity.this,"IP地址无效！",Toast.LENGTH_SHORT).show();
@@ -77,6 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 });
+                //取消按钮监听
                 view.findViewById(R.id.bt_ip_cancel).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -108,8 +121,6 @@ public class LoginActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.bt_login:
-                    CheckOption();
-
                     isLogin();
                     break;
                 case R.id.bt_register:
@@ -147,6 +158,9 @@ public class LoginActivity extends AppCompatActivity {
         if (cb_save_pwd.isChecked()) {
             SpUtil.putString(getApplicationContext(), "user_name", et_user_name.getText().toString());
             SpUtil.putString(getApplicationContext(), "user_pwd", et_user_pwd.getText().toString());
+        }else {
+            SpUtil.putString(getApplicationContext(), "user_name", et_user_name.getText().toString());
+            SpUtil.putString(getApplicationContext(), "user_pwd", "");
         }
     }
 
@@ -185,7 +199,8 @@ public class LoginActivity extends AppCompatActivity {
                     if (str.equals("s")) {
                         MyApp.getInstance().setUserRole(jsonObject.getString("UserRole"));
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        SpUtil.putString(getApplicationContext(), "user_name", et_user_name.getText().toString());
+                       // SpUtil.putString(getApplicationContext(), "user_name", et_user_name.getText().toString());
+                        CheckOption();
                         return;
                     }
                     Toast.makeText(LoginActivity.this, "用户名或密码错误！", Toast.LENGTH_SHORT).show();
