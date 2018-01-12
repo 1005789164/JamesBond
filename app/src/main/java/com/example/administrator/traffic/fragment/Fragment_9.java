@@ -36,6 +36,7 @@ public class Fragment_9 extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mainActivity=(MainActivity)getActivity();
         //从SpUtil里读取数据并赋值给sos和drive
         number_sos = SpUtil.getString(getActivity(), "number_sos", "13915674589");
         number_drive = SpUtil.getString(getActivity(), "number_drive", "13800000000");
@@ -43,10 +44,7 @@ public class Fragment_9 extends Fragment {
 
         //加载menu中的菜单
         mainActivity.toolbar.inflateMenu(R.menu.sos_menu);
-
         ((TextView) mainActivity.toolbar.findViewById(R.id.tv_tb_title)).setText("创意设计");
-        mainActivity.toolbar.findViewById(R.id.menu_BulkRecharge).setVisibility(View.GONE);
-        mainActivity.toolbar.findViewById(R.id.menu_RechargeRecord).setVisibility(View.GONE);
 
         //设置toolbar主菜单的监听
         mainActivity.toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
@@ -102,17 +100,16 @@ public class Fragment_9 extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_9, null);
         return view;
     }
 
-    public Fragment_9(MainActivity mainActivity) {
-        this.mainActivity = mainActivity;
 
-    }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+
         bt_dj = (Button) view.findViewById(R.id.bt_dj);
         bt_sos = (Button) view.findViewById(R.id.bt_sos);
 

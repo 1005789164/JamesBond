@@ -24,6 +24,7 @@ import com.example.administrator.traffic.fragment.Fragment_2;
 import com.example.administrator.traffic.fragment.Fragment_3;
 import com.example.administrator.traffic.fragment.Fragment_5;
 import com.example.administrator.traffic.fragment.Fragment_4;
+import com.example.administrator.traffic.fragment.Fragment_8;
 import com.example.administrator.traffic.fragment.Fragment_9;
 import com.example.administrator.traffic.fragment.Fragment_6;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
@@ -128,10 +129,13 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 5:
                         tv_tb_title.setText("账号管理");
-                        transaction1.replace(R.id.fl_main,new Fragment_6(slidingMenu),"life");
+                        transaction1.replace(R.id.fl_main,new Fragment_6(),"life");
+                        break;
+                    case 7:
+                        transaction1.replace(R.id.fl_main,new Fragment_8(),"");
                         break;
                     case 8:
-                        transaction1.replace(R.id.fl_main,new Fragment_9(MainActivity.this.getSystemService(MainActivity.this.getApplicationContext().LOCATION_SERVICE)),"origina");
+                        transaction1.replace(R.id.fl_main,new Fragment_9(),"origina");
                         break;
                 }
                 transaction1.commit();

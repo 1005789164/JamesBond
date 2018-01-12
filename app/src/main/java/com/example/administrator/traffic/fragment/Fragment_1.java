@@ -44,6 +44,8 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Random;
 
 /**
@@ -53,7 +55,7 @@ import java.util.Random;
 public class Fragment_1 extends Fragment {
     public final static int fragment_1_handler_1=101;
     public final static int fragment_1_handler_2=102;
-    private  MainActivity mainActivity;
+
     ArrayList<HashMap<String,Boolean>> checkStatus=new ArrayList();
     private View inflate;
     private Handler handler = new Handler() {
@@ -88,6 +90,7 @@ public class Fragment_1 extends Fragment {
     private ArrayList<CarBean> top_up_list;
     private int gold;
     private boolean isSendTopUp=true;
+    private MainActivity activity;
 
     private void LoadBean(Message msg) {
         try {
@@ -182,7 +185,7 @@ public class Fragment_1 extends Fragment {
     }
 
     public void initToolBar() {
-        MainActivity activity = (MainActivity) getActivity();
+        activity = (MainActivity) getActivity();
         activity.toolbar.inflateMenu(R.menu.car_menu);
 
         Toolbar.OnMenuItemClickListener onMenuItemClickListener = new Toolbar.OnMenuItemClickListener() {
@@ -191,7 +194,7 @@ public class Fragment_1 extends Fragment {
                 switch (item.toString()){
                     case "批量充值":
                         if(plate_id.size()==0){
-                            Toast.makeText(mainActivity,"请勾选小车",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(activity,"请勾选小车",Toast.LENGTH_SHORT).show();
                         }else {
                             //根据小车id的值去获取carbean的值
                             Log.d("tag","小车id的值______"+car_id.toString());
@@ -328,7 +331,7 @@ public class Fragment_1 extends Fragment {
                 @Override
                 public void onClick(View v) {
                     if(plate_id.size()==0){
-                        Toast.makeText(mainActivity,"请勾选小车",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(activity,"请勾选小车",Toast.LENGTH_SHORT).show();
                     }else {
                         if(plate_id.size()>1){
                             Toast.makeText(getActivity(),"请选择批量设置",Toast.LENGTH_SHORT).show();
@@ -449,7 +452,7 @@ public class Fragment_1 extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Menu menu = mainActivity.toolbar.getMenu();
+        Menu menu = activity.toolbar.getMenu();
         menu.clear();
     }
 }
