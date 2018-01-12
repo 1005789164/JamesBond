@@ -8,6 +8,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     Button bt_register, bt_login;
     CheckBox cb_auto_login, cb_save_pwd;
     View view;
-
+    static final int REQUST_CODE=31;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
                         String ip4=((EditText)view.findViewById(R.id.et_ip4)).getText().toString();
                         String str_ip=ip1+"."+ip2+"."+ip3+"."+ip4;
 
-                        if(ip1.isEmpty()||ip2.isEmpty()||ip3.isEmpty()||ip4.isEmpty()){
+                        if(TextUtils.isEmpty(ip1)||TextUtils.isEmpty(ip2)||TextUtils.isEmpty(ip3)||TextUtils.isEmpty(ip4)){
                             Toast.makeText(LoginActivity.this,"IP地址不能为空！",Toast.LENGTH_SHORT).show();
                         }else {
                             //检查ip合法性
@@ -132,7 +133,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void getIpInfo(){
         String ip=SpUtil.getString(LoginActivity.this,"ip","");
-        if(!ip.isEmpty()){
+        if(!TextUtils.isEmpty(ip)){
             String [] ips=ip.split("\\.");
             ((EditText)view.findViewById(R.id.et_ip1)).setText(ips[0]);
             ((EditText)view.findViewById(R.id.et_ip2)).setText(ips[1]);
@@ -145,7 +146,7 @@ public class LoginActivity extends AppCompatActivity {
         String user_pwd = SpUtil.getString(getApplicationContext(), "user_pwd", "");
         et_user_name.setText(user_name);
         et_user_pwd.setText(user_pwd);
-        if (!user_name.isEmpty()&&!user_pwd.isEmpty()) {
+        if (!TextUtils.isEmpty(user_name)&&!TextUtils.isEmpty(user_pwd)) {
             cb_save_pwd.setChecked(true);
 
         }
@@ -173,14 +174,14 @@ public class LoginActivity extends AppCompatActivity {
             try {
             String user_name = et_user_name.getText().toString();
             String user_pwd = et_user_pwd.getText().toString();
-            if (user_name.isEmpty() || user_pwd.isEmpty()) {
+            if (TextUtils.isEmpty(user_name)|| TextUtils.isEmpty(user_pwd)) {
                 Toast.makeText(LoginActivity.this, "用户名或密码不能为空！", Toast.LENGTH_SHORT).show();
                 return;
             }
             object.put("username", user_name);
             object.put("password", user_pwd);
             String url = "user_login.do";
-            HttpThread thread = new HttpThread(url, object.toString(), mhandler);
+            HttpThread thread = new HttpThread(url, object.toString(), mhandler,REQUST_CODE);
             thread.start();
 
         } catch (JSONException e) {
