@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -38,9 +39,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class Fragment_6 extends android.support.v4.app.Fragment {
+public class Fragment_6 extends Fragment {
     private SlidingMenu menu;
-    //private Context context;
     private LineChart lc;
     private ViewPager vp;
     private RelativeLayout relativeLayout;
