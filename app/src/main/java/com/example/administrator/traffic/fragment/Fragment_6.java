@@ -34,20 +34,25 @@ import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.formatter.XAxisValueFormatter;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class Fragment_6 extends Fragment {
-    public static int FRAGMENT6_HANDLER1=601;
+    public static final int FRAGMENT6_HANDLER1=601;
     private SlidingMenu menu;
     private LineChart lc;
     private ViewPager vp;
@@ -69,6 +74,7 @@ public class Fragment_6 extends Fragment {
     private TextView kongqi1;
     private TextView kongqi2;
     private TextView tvair;
+    private TextView tvtoday;
     private Timer timer;
     //private GraphicalView graphicalView;  Achart引擎图
 
@@ -94,8 +100,15 @@ public class Fragment_6 extends Fragment {
                     JSONObject json=new JSONObject(((String)msg.obj).substring(9).replace(")",""));
                     json=json.getJSONObject("life");
                     json=json.getJSONObject("info");
-                    //String str=new JSONObject((String)msg.obj).getJSONObject("realtime").getJSONObject("weather").getString("humidity");
-                    //tvair.setText(str+"°");
+                    JSONArray jsonArray= new JSONObject(((String)msg.obj).substring(9).replace(")",""))
+                            .getJSONArray("hourly_forecast");
+                    String[] strs=new String[24];
+                    for (int i=0;i<=23;i++){
+                        strs[i]=jsonArray.getJSONObject(i).getString("temperature");
+                    }
+                    Arrays.sort(strs);
+                    tvtoday.setText("今天："+strs[0]+"-"+strs[23]+"°C");
+                    tvair.setText(new JSONObject(((String)msg.obj).substring(9).replace(")","")).getJSONObject("realtime").getJSONObject("weather").getString("temperature")+"°");
                     ziwaixiang1.setText(json.getJSONArray("ziwaixian").getString(0));
                     ziwaixiang2.setText(json.getJSONArray("ziwaixian").getString(1));
                     ganmao1.setText(json.getJSONArray("ganmao").getString(0));
@@ -198,6 +211,7 @@ public class Fragment_6 extends Fragment {
         humidityLinc.setDescription("");
         humidityLinc.setDrawGridBackground(false);
         humidityLinc.setDrawBorders(false);
+        humidityLinc.setBackgroundColor(Color.rgb(253,253,254));
         XAxis xAxis = humidityLinc.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setDrawGridLines(false);
@@ -225,6 +239,7 @@ public class Fragment_6 extends Fragment {
         for (int i = 0; i < list.size() / 3; i++) {
             x.add("");
         }
+        x.add("(S)");
         xAxis.setValueFormatter(new XAxisValueFormatter() {
             @Override
             public String getXValue(String s, int i, ViewPortHandler viewPortHandler) {
@@ -234,6 +249,9 @@ public class Fragment_6 extends Fragment {
             }
         });
         LineDataSet dataset = new LineDataSet(list, "one");
+        dataset.setCircleColor(Color.BLACK);
+        dataset.setDrawCircleHole(false);//实心
+        dataset.setColor(Color.GRAY);//线条
         dataset.setDrawValues(false);
         LineData lineData = new LineData(x, dataset);
         humidityLinc.setData(lineData);
@@ -412,11 +430,10 @@ public class Fragment_6 extends Fragment {
         barDataSet.setDrawValues(false);//柱状图上的值
         BarData barData = new BarData(xValue, barDataSet);
         airBarc.setData(barData);
-        /*
         airBarc.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
             @Override
             public void onValueSelected(Entry entry, int i, Highlight highlight) {
-
+                airWeather.setText("过去一分钟的最差值："+entry.getVal());
             }
 
             @Override
@@ -424,7 +441,6 @@ public class Fragment_6 extends Fragment {
 
             }
         });
-        */
         airBarc.setMarkerView(new CustomMarkerView(getContext(), R.layout.fragment_6_text));
         //airBarc.setBorderWidth(15f);
         airBarc.invalidate();
@@ -537,5 +553,6 @@ public class Fragment_6 extends Fragment {
         kongqi1 = (TextView) view.findViewById(R.id.kongqi1);
         kongqi2 = (TextView) view.findViewById(R.id.kongqi2);
         tvair=(TextView) view.findViewById(R.id.tvair);
+        tvtoday= (TextView) view.findViewById(R.id.tvtoday);
     }
 }
