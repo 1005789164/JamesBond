@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<TextView
+    android:text="红绿灯设置"
+    android:textSize="24sp"
+    android:textColor="#000"
+    android:layout_gravity="center"
+    android:padding="5dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+    <GridLayout
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:columnCount="4"
+        android:layout_height="wrap_content">
+        <TextView
+        style="@style/text_style1"
+        android:text="红灯周期:"
+        />
+        <EditText
+            android:inputType="number"
+            android:layout_width="200dp"
+            android:textColor="#000"
+            android:id="@+id/et_light_time1"
+            android:layout_columnSpan="2"
+            />
+        <TextView  android:text="秒"
+            style="@style/text_style1"
+            />
+        <TextView
+            style="@style/text_style1"
+            android:text="绿灯周期:"
+            />
+        <EditText
+            android:textColor="#000"
+
+            android:inputType="number"
+            android:layout_width="200dp"
+            android:id="@+id/et_light_time2"
+            android:layout_columnSpan="2"
+            />
+        <TextView  android:text="秒"
+            style="@style/text_style1"
+            />
+        <TextView
+            style="@style/text_style1"
+            android:text="黄灯周期:"
+            />
+        <EditText
+            android:textColor="#000"
+
+            android:inputType="number"
+            android:layout_width="200dp"
+            android:id="@+id/et_light_time3"
+            android:layout_columnSpan="2"
+            />
+        <TextView  android:text="秒"
+            style="@style/text_style1"
+            />
+
+    </GridLayout>
+
+</LinearLayout>

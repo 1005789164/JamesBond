@@ -22,17 +22,17 @@ import java.net.URL;
 
 public class HttpIcon  {
 
-    private static Bitmap bitmap;
+    private  Bitmap bitmap;
 
-    public static Bitmap getBitmap() {
+    public  Bitmap getBitmap() {
         return bitmap;
     }
 
-    public static void setBitmap(Bitmap bitmap) {
-        HttpIcon.bitmap = bitmap;
+    public  void setBitmap(Bitmap bitmap) {
+        this.bitmap = bitmap;
     }
 
-    public static void post(final String Url, final Handler handler){
+    public  void post(final String Url, final Handler handler){
         Runnable runnable = new Runnable() {
             private int code;
             @Override
@@ -52,6 +52,7 @@ public class HttpIcon  {
             if(code ==200){
                 bitmap = BitmapFactory.decodeStream(conn.getInputStream());
                 obtain.obj=bitmap;
+                Log.e("httpIcon","BitMap====");
             }
         } catch (Exception e) {
             MyApp.getInstance().handler.sendEmptyMessage(404);

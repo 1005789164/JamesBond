@@ -25,14 +25,15 @@ import java.net.URLConnection;
 
 public class HttpHelper {
     public static String  URL = "http://192.168.1.103:8080/transportservice/action/";
-    public static String Get_Sense = "GetAllSense.do";
-
 
     public static String webContext;
     public final static String Get_Bus ="GetBusStationInfo.do";
     public  final static String Get_Sense = "GetAllSense.do";
     public static String Get_Car_Balance="GetCarAccountBalance.do";
     public static String Set_Car_top_up="SetCarAccountRecharge.do";
+    public static String Get_Light="GetTrafficLightConfigAction.do";
+    public static String Set_Light_Time="SetTrafficLightNowStatus.do";
+    public static String Get_Violation="traffic_violations.do";
 
     public static String getWebContext() {
         return webContext;
@@ -44,7 +45,7 @@ public class HttpHelper {
 
     private  static int code;
 
-    public static int post(String Url, String strjson){
+    public synchronized static int post(String Url, String strjson){
         try {
             URL url = new URL(URL+Url);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -74,7 +75,7 @@ public class HttpHelper {
                 Log.e("http","获取数据"+getWebContext());
             }
         } catch (Exception e) {
-            MyApp.handler.sendEmptyMessage(404);
+            MyApp.getInstance().getHandler().sendEmptyMessage(404);
             e.printStackTrace();
         }
         return code;

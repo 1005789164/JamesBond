@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/fl_photo_root"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<GridLayout
+    android:columnCount="2"
+    android:layout_centerInParent="true"
+    android:id="@+id/gl_layout"
+    android:layout_gravity="center"
+    android:layout_margin="20dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:onClick="Magnify"
+        android:id="@+id/gl_iv_1"
+
+        android:layout_margin="10dp"
+        android:src="@drawable/p1"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        />
+    <ImageView
+        android:onClick="Magnify"
+        android:id="@+id/gl_iv_2"
+        android:layout_margin="10dp"
+        android:src="@drawable/p2"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        />
+    <ImageView
+        android:onClick="Magnify"
+        android:id="@+id/gl_iv_3"
+        android:layout_margin="10dp"
+        android:src="@drawable/p3"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        />
+    <ImageView
+        android:onClick="Magnify"
+        android:id="@+id/gl_iv_4"
+        android:layout_margin="10dp"
+        android:src="@drawable/p4"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        />
+</GridLayout>
+
+    <Button
+        android:id="@+id/bt_finish"
+        android:onClick="Magnify"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center|bottom"
+        android:text="返回"
+        android:textAllCaps="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

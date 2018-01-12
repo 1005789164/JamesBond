@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<ImageView
+    android:src="@drawable/car"
+    android:layout_width="20dp"
+    android:layout_margin="10dp"
+    android:layout_height="20dp" />
+    <TextView
+        android:id="@+id/tv_bus_car_number"
+        android:text="1号(101人)"
+      style="@style/text_style1" />
+    <TextView
+        android:id="@+id/tv_bus_stance_time"
+        android:text="5分钟到站"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="20dp"
+        style="@style/text_style1" />
+    <TextView
+        android:id="@+id/tv_bus_stance_distance"
+        android:text="距离站台900米"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="20dp"
+        style="@style/text_style1" />
+</LinearLayout>

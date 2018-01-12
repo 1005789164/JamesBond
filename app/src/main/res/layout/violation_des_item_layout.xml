@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#fff"
+    android:layout_margin="10dp"
+    android:padding="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<LinearLayout
+   android:layout_marginBottom="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:text="2017-04-12 12:00:35"
+        android:id="@+id/tv_card_time"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginRight="20dp"
+        android:text="未处理"
+        style="@style/text_style1" />
+</LinearLayout>
+    <TextView
+        android:text="学院路"
+
+        android:layout_marginBottom="10dp"
+        android:id="@+id/tv_card_road"
+        style="@style/text_style1" />
+    <TextView
+        android:id="@+id/tv_card_des"
+        android:layout_marginBottom="10dp"
+        android:text="驾驶机动车在告诉公路,城市快速路以外的道路不按规定车道行驶"
+        style="@style/text_style1"  />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_card_points"
+            android:text="扣分10分"
+            style="@style/text_style1" />
+        <TextView
+            android:text="罚款100元"
+            android:id="@+id/tv_violation_des_gold"
+            android:layout_marginLeft="20dp"
+            style="@style/text_style1" />
+    </LinearLayout>
+</LinearLayout>

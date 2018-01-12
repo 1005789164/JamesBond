@@ -1,5 +1,6 @@
 package com.example.administrator.traffic.adapter;
 
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -15,6 +16,7 @@ public abstract class MyBaseAdapter<T> extends BaseAdapter {
 
     public  ArrayList<T> list;
     public MyBaseAdapter(ArrayList<T> list){
+        Log.d("tag","list大小======"+list.size());
         this.list=list;
     }
 

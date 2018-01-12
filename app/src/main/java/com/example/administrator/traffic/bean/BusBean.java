@@ -7,10 +7,48 @@ import java.util.List;
  */
 
 public class BusBean {
-    public String Stance_name;
-    public List<BusStance> busStanceList;
-    private class BusStance {
-        public String Bus_id;
-        public String Bus_Stance;
+
+        /**
+         * BusId : 1
+         * Busload : 60
+         * Distance : 975
+         */
+
+        private int BusId;
+        private int Busload;
+        private int Distance;
+
+    @Override
+    public String toString() {
+        return "BusBean{" +
+                "BusId=" + BusId +
+                ", Busload=" + Busload +
+                ", Distance=" + Distance +
+                '}';
     }
+
+    public int getBusId() {
+            return BusId;
+        }
+
+        public void setBusId(int BusId) {
+            this.BusId = BusId;
+        }
+
+        public int getBusload() {
+            return Busload;
+        }
+
+        public void setBusload(int Busload) {
+            this.Busload = Busload;
+        }
+
+        public int getDistance() {
+            return Distance;
+        }
+
+        public void setDistance(int Distance) {
+            this.Distance = Distance;
+        }
+
 }

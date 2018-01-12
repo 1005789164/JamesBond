@@ -19,17 +19,21 @@ public class MyApp extends Application {
         return myApp;
     }
 
-    private Context context;
+    public static Context context;
 
-    public Context getContext() {
+    public static Context getContext() {
         return context;
     }
 
-    public static Handler handler = new Handler(){
+    public  Handler getHandler() {
+        return handler;
+    }
+
+    public  Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-
+            Toast.makeText(context,"请检查网络",Toast.LENGTH_SHORT).show();
         }
     };
     public String Ip;
@@ -49,10 +53,10 @@ public class MyApp extends Application {
         Url = url;
     }
     public boolean checkIp(String ip){
-       String str = "^([1-9]\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|[1-9])\\."
-                + "^([1-9]\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\."
-               + "^([1-9]\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\."
-               + "^([1-9]\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)$";
+       String str = "^(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|[1-9])\\."
+                + "(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\."
+               + "^(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\."
+               + "^(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)$";
         if(ip.matches(str)){
             return true;
         }else {

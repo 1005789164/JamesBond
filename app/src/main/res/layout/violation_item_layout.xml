@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:background="#ccc"
+    android:layout_margin="5dp"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_weight="1"
+        android:background="#000"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_margin="1dp"
+            android:padding="5dp"
+            android:id="@+id/ll_violation_item"
+            android:background="#ccc"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tv_vl_name"
+            android:textSize="20sp"
+            android:text="车牌名"
+            style="@style/text_style1" />
+        <TextView
+            android:layout_marginTop="5dp"
+            android:id="@+id/tv_vl_undisposed"
+            android:text="未处理违章2次"
+            style="@style/text_style1" />
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_vl_points"
+                android:text="扣2分"
+                style="@style/text_style1"  />
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:id="@+id/tv_vl_gold"
+                android:text="罚款500元"
+                style="@style/text_style1" />
+        </LinearLayout>
+
+    </LinearLayout>
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/iv_vl_remove"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/subtract"
+        android:layout_width="30dp"
+        android:layout_height="30dp" />
+</LinearLayout>

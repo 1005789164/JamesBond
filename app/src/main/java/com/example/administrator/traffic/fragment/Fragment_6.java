@@ -66,6 +66,7 @@ public class Fragment_6 extends android.support.v4.app.Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         lc = (LineChart) view.findViewById(R.id.lc);
+
         menu.addIgnoredView(lc);
         createPolyLine();
         vp = (ViewPager) view.findViewById(R.id.vp);
