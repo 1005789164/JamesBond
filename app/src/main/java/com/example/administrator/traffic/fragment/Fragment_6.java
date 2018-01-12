@@ -1,8 +1,9 @@
 package com.example.administrator.traffic.fragment;
 
-import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import com.example.administrator.traffic.MainActivity;
 import com.example.administrator.traffic.R;
 import com.example.administrator.traffic.adapter.MyPagerAdpter;
+import com.example.administrator.traffic.http.HttpThread;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.charts.PieChart;
@@ -35,11 +37,17 @@ import com.github.mikephil.charting.formatter.XAxisValueFormatter;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Fragment_6 extends Fragment {
+    public static int FRAGMENT6_HANDLER1=601;
     private SlidingMenu menu;
     private LineChart lc;
     private ViewPager vp;
@@ -50,6 +58,18 @@ public class Fragment_6 extends Fragment {
     private BarChart airBarc;
     private PieChart temperPiec;
     private LineChart humidityLinc;
+    private TextView ziwaixiang1;
+    private TextView ziwaixiang2;
+    private TextView ganmao1;
+    private TextView ganmao2;
+    private TextView chuanyi1;
+    private TextView chuanyi2;
+    private TextView yundong1;
+    private TextView yundong2;
+    private TextView kongqi1;
+    private TextView kongqi2;
+    private TextView tvair;
+    private Timer timer;
     //private GraphicalView graphicalView;  Achart引擎图
 
     @Nullable
@@ -57,8 +77,59 @@ public class Fragment_6 extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_6, null);
-        menu = ((MainActivity)getActivity()).slidingMenu;
+        menu = ((MainActivity) getActivity()).slidingMenu;
+        initView(view);
         return view;
+    }
+
+    private void Net() {
+        new HttpThread("getWeather.do","",handler1,Fragment_6.FRAGMENT6_HANDLER1).start();
+    }
+
+    private Handler handler1=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            if(msg.what==Fragment_6.FRAGMENT6_HANDLER1){
+                try {
+                    JSONObject json=new JSONObject(((String)msg.obj).substring(9).replace(")",""));
+                    json=json.getJSONObject("life");
+                    json=json.getJSONObject("info");
+                    //String str=new JSONObject((String)msg.obj).getJSONObject("realtime").getJSONObject("weather").getString("humidity");
+                    //tvair.setText(str+"°");
+                    ziwaixiang1.setText(json.getJSONArray("ziwaixian").getString(0));
+                    ziwaixiang2.setText(json.getJSONArray("ziwaixian").getString(1));
+                    ganmao1.setText(json.getJSONArray("ganmao").getString(0));
+                    ganmao2.setText(json.getJSONArray("ganmao").getString(1));
+                    chuanyi1.setText(json.getJSONArray("chuanyi").getString(0));
+                    chuanyi2.setText(json.getJSONArray("chuanyi").getString(1));
+                    yundong1.setText(json.getJSONArray("yundong").getString(0));
+                    yundong2.setText(json.getJSONArray("yundong").getString(1));
+                    kongqi1.setText(json.getJSONArray("wuran").getString(0));
+                    kongqi2.setText(json.getJSONArray("wuran").getString(1));
+                    Log.e("xxx",json.toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                Log.e("xxx",((String)msg.obj).substring(9).replace(")",""));
+            }
+        }
+    };
+
+    @Override
+    public void onResume() {
+        (timer=new Timer()).schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Net();
+            }
+        },300,3000);
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        timer.cancel();
+        super.onPause();
     }
 
     @Override
@@ -454,4 +525,17 @@ public class Fragment_6 extends Fragment {
         /*lineDataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);*/
     }
 
+    private void initView(View view) {
+        ziwaixiang1 = (TextView) view.findViewById(R.id.ziwaixiang1);
+        ziwaixiang2 = (TextView) view.findViewById(R.id.ziwaixiang2);
+        ganmao1 = (TextView) view.findViewById(R.id.ganmao1);
+        ganmao2 = (TextView) view.findViewById(R.id.ganmao2);
+        chuanyi1 = (TextView) view.findViewById(R.id.chuanyi1);
+        chuanyi2 = (TextView) view.findViewById(R.id.chuanyi2);
+        yundong1 = (TextView) view.findViewById(R.id.yundong1);
+        yundong2 = (TextView) view.findViewById(R.id.yundong2);
+        kongqi1 = (TextView) view.findViewById(R.id.kongqi1);
+        kongqi2 = (TextView) view.findViewById(R.id.kongqi2);
+        tvair=(TextView) view.findViewById(R.id.tvair);
+    }
 }

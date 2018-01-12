@@ -58,7 +58,7 @@ public class Fragment_4 extends Fragment {
         imgrefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new HttpThread(HttpHelper.Get_Sense, "{}", handler).start();
+                new HttpThread(HttpHelper.Get_Sense, "{}", handler,101).start();
             }
         });
     }
@@ -100,7 +100,7 @@ public class Fragment_4 extends Fragment {
         (timer = new Timer()).schedule(new TimerTask() {
             @Override
             public void run() {
-                new HttpThread(HttpHelper.Get_Sense, "{}", handler).start();
+                new HttpThread(HttpHelper.Get_Sense, "{}", handler,101).start();
             }
         }, 300, 3000);
         AnimationDrawable animationDrawable= (AnimationDrawable) imgroad.getBackground();

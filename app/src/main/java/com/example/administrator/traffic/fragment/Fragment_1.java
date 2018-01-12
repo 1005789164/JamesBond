@@ -142,7 +142,7 @@ public class Fragment_1 extends Fragment {
 
 
     private void Net(int i) {
-        HttpThread httpThread = new HttpThread(HttpHelper.Get_Car_Balance,i+"", handler);
+        HttpThread httpThread = new HttpThread(HttpHelper.Get_Car_Balance,i+"", handler,101);
         httpThread.start();
     }
 
@@ -304,7 +304,7 @@ public class Fragment_1 extends Fragment {
     private void Net2(ArrayList<String> car_id, int gold) {
         //小车充值
 
-        new HttpThread(HttpHelper.Set_Car_top_up,"{'CarId':"+car_id+",'Money':"+gold+"}",handler2);
+        new HttpThread(HttpHelper.Set_Car_top_up,"{'CarId':"+car_id+",'Money':"+gold+"}",handler2,102);
 
 
     }
