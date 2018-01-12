@@ -43,7 +43,6 @@ import java.util.Random;
 /**
  * Created by Administrator on 2018/1/7.
  */
-@SuppressLint("ValidFragment")
 public class Fragment_1 extends Fragment {
     private  MainActivity mainActivity;
     private String[] name = new String[]{
