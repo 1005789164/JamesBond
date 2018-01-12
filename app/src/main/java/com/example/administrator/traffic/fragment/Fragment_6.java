@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.administrator.traffic.MainActivity;
 import com.example.administrator.traffic.R;
 import com.example.administrator.traffic.adapter.MyPagerAdpter;
 import com.github.mikephil.charting.charts.BarChart;
@@ -37,7 +38,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Locale;
 
-@SuppressLint("ValidFragment")
 public class Fragment_6 extends android.support.v4.app.Fragment {
     private SlidingMenu menu;
     //private Context context;
@@ -52,16 +52,12 @@ public class Fragment_6 extends android.support.v4.app.Fragment {
     private LineChart humidityLinc;
     //private GraphicalView graphicalView;  Achart引擎图
 
-
-    public Fragment_6(/*Context context,*/SlidingMenu slidingMenu) {
-        this.menu = slidingMenu;
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_6, null);
+        menu = ((MainActivity)getActivity()).slidingMenu;
         return view;
     }
 
