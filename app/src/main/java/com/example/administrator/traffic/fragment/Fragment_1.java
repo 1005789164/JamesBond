@@ -1,5 +1,6 @@
 package com.example.administrator.traffic.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -14,6 +15,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +32,7 @@ import android.widget.Toast;
 import com.example.administrator.traffic.MainActivity;
 import com.example.administrator.traffic.R;
 import com.example.administrator.traffic.adapter.MyBaseAdapter;
+import com.example.administrator.traffic.bean.BusBean;
 import com.example.administrator.traffic.bean.CarBean;
 import com.example.administrator.traffic.http.HttpHelper;
 import com.example.administrator.traffic.http.HttpThread;
@@ -41,8 +44,7 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
+import java.util.Random;
 
 /**
  * Created by Administrator on 2018/1/7.
@@ -408,6 +410,7 @@ public class Fragment_1 extends Fragment {
                 car_id.clear();
             }
         });
+        //builder.setTitle("小车充值");
         AlertDialog dialog = builder.create();
         dialog.setView(inflate);
         dialog.show();

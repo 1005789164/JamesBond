@@ -12,6 +12,12 @@ import android.widget.Toast;
 
 public class MyApp extends Application {
     private  static MyApp myApp;
+    private static String userRole;
+    public String getUserRole() {
+        return userRole;
+    }
+    public void setUserRole(String userRole) { this.userRole= userRole;}
+
     public static MyApp getInstance(){
         if(myApp==null){
             myApp = new MyApp();
