@@ -1,5 +1,6 @@
 package com.example.administrator.traffic.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -42,7 +43,6 @@ import java.util.Random;
 /**
  * Created by Administrator on 2018/1/7.
  */
-
 public class Fragment_1 extends Fragment {
     private  MainActivity mainActivity;
     private String[] name = new String[]{
@@ -111,7 +111,6 @@ public class Fragment_1 extends Fragment {
         this.mainActivity=mainActivity;
     }
 
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -143,7 +142,7 @@ public class Fragment_1 extends Fragment {
 
 
     private void Net(int i) {
-        HttpThread httpThread = new HttpThread(HttpHelper.Get_Car_Balance,i+"", handler);
+        HttpThread httpThread = new HttpThread(HttpHelper.Get_Car_Balance,i+"", handler,101);
         httpThread.start();
     }
 
@@ -305,7 +304,7 @@ public class Fragment_1 extends Fragment {
     private void Net2(ArrayList<String> car_id, int gold) {
         //小车充值
 
-        new HttpThread(HttpHelper.Set_Car_top_up,"{'CarId':"+car_id+",'Money':"+gold+"}",handler2);
+        new HttpThread(HttpHelper.Set_Car_top_up,"{'CarId':"+car_id+",'Money':"+gold+"}",handler2,102);
 
 
     }

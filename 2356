@@ -1,0 +1,87 @@
+[33mcommit f69c99221f1fa5157965d96348feff411c6b84b2[m
+Author: mj <100@qq.com>
+Date:   Thu Jan 11 19:49:01 2018 +0800
+
+    aaaaa
+
+[33mcommit 0bacb3335247635d228345ca2609d8d82ae835b5[m
+Author: user3 <3@qq.com>
+Date:   Thu Jan 11 19:35:24 2018 +0800
+
+    “wwx提交”
+
+[33mcommit 494a059b7a82fa950e5bca3e4ac90497312e4947[m
+Author: user3 <3@qq.com>
+Date:   Wed Jan 10 19:55:02 2018 +0800
+
+    “改错题提交”
+
+[33mcommit 09041b8caa0e6ff2c920f0d0ecee20826ed70b7d[m
+Merge: 4121fc1 3749bc4
+Author: user1 <123456@qq.com>
+Date:   Mon Jan 8 21:31:36 2018 +0800
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 4121fc168509477567573f41a0bd5dd0f921bf2e[m
+Merge: 190cfc3 ad6a439
+Author: user1 <123456@qq.com>
+Date:   Mon Jan 8 21:31:33 2018 +0800
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #       app/src/main/java/com/example/administrator/traffic/MyApp/MyApp.java
+    #       app/src/main/java/com/example/administrator/traffic/http/HttpHelper.java
+    #       app/src/main/java/com/example/administrator/traffic/http/HttpIcon.java
+    #       library/build/intermediates/incremental/packageDebugResources/compile-file-map.properties
+    #       library/build/intermediates/incremental/packageReleaseResources/compile-file-map.properties
+    #       library/build/outputs/aar/library-release.aar
+
+[33mcommit 3749bc47542189e25063f1ee484784ccaf7d6770[m
+Author: mj <100@qq.com>
+Date:   Mon Jan 8 21:26:47 2018 +0800
+
+    1111111
+
+[33mcommit 190cfc3e5591ee6d6c46e6a316aec8dc3d0f2dcb[m
+Author: user1 <123456@qq.com>
+Date:   Mon Jan 8 21:12:53 2018 +0800
+
+    修改http
+
+[33mcommit ad6a43938afed4fe6852cfe6d54c4fd765d93bfc[m
+Author: user3 <3@qq.com>
+Date:   Mon Jan 8 20:40:05 2018 +0800
+
+    “创意设计9第二次提交”
+
+[33mcommit 1a9d4b919671ae30505e2220142b64a5e47f1964[m
+Author: user3 <3@qq.com>
+Date:   Mon Jan 8 20:05:03 2018 +0800
+
+    “创意设计9”
+
+[33mcommit 691ea92f2e528828dd08f10fa7bdbf77444c071f[m
+Author: user1 <123456@qq.com>
+Date:   Mon Jan 8 15:35:48 2018 +0800
+
+    增加toolbar布局
+
+[33mcommit 93db403ebd048c20fbd207b3895c597d34e703d4[m
+Author: user1 <123456@qq.com>
+Date:   Mon Jan 8 14:33:02 2018 +0800
+
+    "初始化"
+
+[33mcommit f68bc384ad543d18e3e3229843df11909c1d3380[m
+Author: user3 <3@qq.com>
+Date:   Mon Jan 8 13:58:37 2018 +0800
+
+    “888888888888”
+
+[33mcommit 19bf7b3e59b1c6eae5a424b3c7bded322952ab8e[m
+Author: user1 <123456@qq.com>
+Date:   Mon Jan 8 09:32:20 2018 +0800
+
+    "初始化"

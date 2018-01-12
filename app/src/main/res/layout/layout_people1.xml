@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    android:id="@+id/ll_people_1"
+    android:id="@+id/ll_people1"
     android:visibility="visible"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -128,6 +128,7 @@
                     android:orientation="vertical"
                     android:gravity="center">
                     <ImageView
+                        android:id="@+id/iv_people_car_1"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:background="@drawable/car_bm"/>

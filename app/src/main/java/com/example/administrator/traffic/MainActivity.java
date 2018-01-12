@@ -20,7 +20,7 @@ import com.example.administrator.traffic.adapter.MyBaseAdapter;
 import com.example.administrator.traffic.fragment.Fragment_1;
 import com.example.administrator.traffic.fragment.Fragment_2;
 import com.example.administrator.traffic.fragment.Fragment_3;
-import com.example.administrator.traffic.fragment.Fragment_8;
+import com.example.administrator.traffic.fragment.Fragment_4;
 import com.example.administrator.traffic.fragment.Fragment_9;
 import com.example.administrator.traffic.fragment.Fragment_6;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
@@ -34,7 +34,7 @@ import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
-    private SlidingMenu slidingMenu;
+    public SlidingMenu slidingMenu;
     private ListView lv_menu;
     String[] arrTitle = new String[]{"车辆账户", "公交查询", "路灯管理", "路况查询", "车辆违章", "生活助手", "数据分析", "个人中心", "创意设计"};
     String[] arrLetter = new String[]{"C", "B", "L", "R", "P", "A", "D", "S", "O"};
@@ -108,14 +108,14 @@ public class MainActivity extends AppCompatActivity {
                     case 2:
                         transaction1.replace(R.id.fl_main,new Fragment_3(),"light");
                         break;
-                    case 5:
-                        transaction1.replace(R.id.fl_main,new Fragment_6(slidingMenu),"life");
+                    case 3:
+                        transaction1.replace(R.id.fl_main,new Fragment_4(),"road");
                         break;
-                    case 7:
-                        transaction1.replace(R.id.fl_main,new Fragment_8(),"personal");
+                    case 5:
+                        transaction1.replace(R.id.fl_main,new Fragment_6(),"life");
                         break;
                     case 8:
-                        transaction1.replace(R.id.fl_main,new Fragment_9(MainActivity.this),"origina");
+                        transaction1.replace(R.id.fl_main,new Fragment_9(MainActivity.this.getSystemService(MainActivity.this.getApplicationContext().LOCATION_SERVICE)),"origina");
                         break;
                 }
                 transaction1.commit();

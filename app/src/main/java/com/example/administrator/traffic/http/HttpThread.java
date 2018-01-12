@@ -11,11 +11,12 @@ public class HttpThread extends Thread {
     private  String Url;
     private  String StrJson;
     private  Handler handler;
-
-    public HttpThread(String Url, String StrJson, Handler handler){
+    private int tag;
+    public HttpThread(String Url, String StrJson, Handler handler,int tag){
         this.Url = Url;
         this.StrJson = StrJson;
         this.handler = handler;
+        this.tag=tag;
     }
 
     @Override
@@ -29,7 +30,7 @@ public class HttpThread extends Thread {
         }
 
         int post = HttpHelper.post(Url, StrJson);
-        obtain.what =post;
+        obtain.what =tag;
         if(post==200){
             obtain.obj=HttpHelper.getWebContext();
         }

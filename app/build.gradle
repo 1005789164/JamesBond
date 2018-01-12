@@ -26,6 +26,8 @@ dependencies {
     })
     compile project(':library')
     compile files('libs/MPAndroidChart-v2.1.5.jar')
+    compile files('libs/gson-2.8.0.jar')
+    compile files('libs/achartengine-1.1.2.jar')
     compile 'com.android.support:appcompat-v7:25.2.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha7'
     compile 'com.android.support:support-v4:25.2.0'

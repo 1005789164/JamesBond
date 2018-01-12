@@ -54,7 +54,7 @@ public class Fragment_2 extends Fragment {
     }
 
     private void Net1(int id) {
-        HttpThread httpThread = new HttpThread(HttpHelper.Get_Bus,""+id, handler);
+        HttpThread httpThread = new HttpThread(HttpHelper.Get_Bus,""+id, handler,101);
         httpThread.start();
     }
 

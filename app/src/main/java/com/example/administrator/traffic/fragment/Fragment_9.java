@@ -36,6 +36,7 @@ public class Fragment_9 extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //从SpUtil里读取数据并赋值给sos和drive
         number_sos = SpUtil.getString(getActivity(), "number_sos", "13915674589");
         number_drive = SpUtil.getString(getActivity(), "number_drive", "13800000000");
 
@@ -47,7 +48,7 @@ public class Fragment_9 extends Fragment {
         mainActivity.toolbar.findViewById(R.id.menu_BulkRecharge).setVisibility(View.GONE);
         mainActivity.toolbar.findViewById(R.id.menu_RechargeRecord).setVisibility(View.GONE);
 
-        //设置主菜单的监听
+        //设置toolbar主菜单的监听
         mainActivity.toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -55,10 +56,15 @@ public class Fragment_9 extends Fragment {
                 final AlertDialog dialog;
                 switch (item.getItemId()) {
                     case R.id.menu_numberSet:
+                        //创建一个dialog菜单对象
                         dialog = new AlertDialog.Builder(getActivity()).create();
+                        //将R.layout.dialog_numberset布局加载到view变量里
                         view = View.inflate(getActivity(), R.layout.dialog_numberset, null);
+                        //设置dialog菜单的标题名
                         dialog.setTitle("号码设置");
+                        //将view设置到dialog菜单里
                         dialog.setView(view);
+                        //显示dialog
                         dialog.show();
 
                         ((EditText) view.findViewById(R.id.et_sosnumber)).setText(number_sos);
