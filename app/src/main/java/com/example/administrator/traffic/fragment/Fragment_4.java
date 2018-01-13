@@ -32,6 +32,7 @@ import java.util.TimerTask;
  */
 
 public class Fragment_4 extends Fragment {
+    public static final int fragment_4_handler_1=401;
     private TextView tvyear;
     private TextView tvweek;
     private TextView tvtemper;
@@ -58,7 +59,7 @@ public class Fragment_4 extends Fragment {
         imgrefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new HttpThread(HttpHelper.Get_Sense, "{}", handler,101).start();
+                new HttpThread(HttpHelper.Get_Sense, "{}", handler,fragment_4_handler_1).start();
             }
         });
     }
@@ -76,7 +77,7 @@ public class Fragment_4 extends Fragment {
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            if (msg.what == 200) {
+            if (msg.what == fragment_4_handler_1) {
                 try {
                     JSONObject jsonObject = new JSONObject((String) msg.obj);
                     Log.e("xxx", (String) msg.obj);
@@ -100,7 +101,7 @@ public class Fragment_4 extends Fragment {
         (timer = new Timer()).schedule(new TimerTask() {
             @Override
             public void run() {
-                new HttpThread(HttpHelper.Get_Sense, "{}", handler,101).start();
+                new HttpThread(HttpHelper.Get_Sense, "{}", handler,fragment_4_handler_1).start();
             }
         }, 300, 3000);
         AnimationDrawable animationDrawable= (AnimationDrawable) imgroad.getBackground();

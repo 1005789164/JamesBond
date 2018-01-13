@@ -52,7 +52,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Fragment_6 extends Fragment {
-    public static final int FRAGMENT6_HANDLER1=601;
+    public static final int fragment_6_handler_1=601;
     private SlidingMenu menu;
     private LineChart lc;
     private ViewPager vp;
@@ -89,13 +89,13 @@ public class Fragment_6 extends Fragment {
     }
 
     private void Net() {
-        new HttpThread("getWeather.do","",handler1,Fragment_6.FRAGMENT6_HANDLER1).start();
+        new HttpThread("getWeather.do","",handler1,Fragment_6.fragment_6_handler_1).start();
     }
 
     private Handler handler1=new Handler(){
         @Override
         public void handleMessage(Message msg) {
-            if(msg.what==Fragment_6.FRAGMENT6_HANDLER1){
+            if(msg.what==Fragment_6.fragment_6_handler_1){
                 try {
                     JSONObject json=new JSONObject(((String)msg.obj).substring(9).replace(")",""));
                     json=json.getJSONObject("life");

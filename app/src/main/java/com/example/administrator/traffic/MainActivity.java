@@ -124,16 +124,22 @@ public class MainActivity extends AppCompatActivity {
                         tv_tb_title.setText("红绿灯管理");
                         transaction1.replace(R.id.fl_main,new Fragment_3(),"light");
                         break;
+                    case 3:
+                        tv_tb_title.setText("路况查询");
+                        transaction1.replace(R.id.fl_main,new Fragment_4(),"road");
+                        break;
                     case 4:
                         tv_tb_title.setText("车辆违章");
                         transaction1.replace(R.id.fl_main,new Fragment_5(),"Violation");
                         break;
                     case 5:
-                        tv_tb_title.setText("账号管理");
+                        tv_tb_title.setText("生活助手");
                         transaction1.replace(R.id.fl_main,new Fragment_6(),"life");
                         break;
                     case 6:
+                        tv_tb_title.setText("数据分析");
                         transaction1.replace(R.id.fl_main,new Fragment_7(),"data");
+                        break;
                     case 7:
                         transaction1.replace(R.id.fl_main,new Fragment_8(),"");
                         break;
