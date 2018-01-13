@@ -21,6 +21,7 @@ import com.example.administrator.traffic.fragment.Fragment_1;
 import com.example.administrator.traffic.fragment.Fragment_2;
 import com.example.administrator.traffic.fragment.Fragment_3;
 import com.example.administrator.traffic.fragment.Fragment_4;
+import com.example.administrator.traffic.fragment.Fragment_7;
 import com.example.administrator.traffic.fragment.Fragment_9;
 import com.example.administrator.traffic.fragment.Fragment_6;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
@@ -113,6 +114,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 5:
                         transaction1.replace(R.id.fl_main,new Fragment_6(),"life");
+                        break;
+                    case 6:
+                        transaction1.replace(R.id.fl_main,new Fragment_7(),"data");
                         break;
                     case 8:
                         transaction1.replace(R.id.fl_main,new Fragment_9(MainActivity.this.getSystemService(MainActivity.this.getApplicationContext().LOCATION_SERVICE)),"origina");
