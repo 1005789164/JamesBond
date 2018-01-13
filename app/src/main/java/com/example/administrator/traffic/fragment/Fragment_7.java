@@ -32,7 +32,7 @@ public class Fragment_7 extends Fragment {
     private ImageView[] imageViews = new ImageView[3];
     private SlidingMenu slidingMenu;
     private TextView tvtext;
-//吗的
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container
