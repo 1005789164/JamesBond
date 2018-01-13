@@ -26,6 +26,7 @@ import java.util.ArrayList;
  */
 
 public class Fragment_7 extends Fragment {
+    //,,,,,
     private ViewPager vp;
     private LinearLayout llayout;
     private ArrayList<View> arrayList = new ArrayList<>();
