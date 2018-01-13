@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout android:background="#ccc"
+
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView
+        android:src="@drawable/bus"
+        android:layout_margin="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_margin="5dp"
+        android:layout_marginLeft="10dp"
+        android:text="901路公交车"
+       style="@style/text_style1" />
+ <TextView
+     android:layout_margin="5dp"
+        android:text="首：6：00 末：21:00"
+     style="@style/text_style1" />
+<TextView
+    android:layout_margin="5dp"
+    android:id="@+id/tv_bus_people"
+    android:text="当前承载能力:1211人"
+    style="@style/text_style1" />
+    <Button
+        android:layout_margin="5dp"
+        android:text="详情"
+        android:id="@+id/bt_bus_des"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

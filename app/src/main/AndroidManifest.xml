@@ -38,7 +38,10 @@
         <activity
             android:name=".GuideActiivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity android:name=".ViolationActivity">
 
+        </activity>
+        <activity android:name=".ViolationPhotoActivity"/>
     </application>
 
 </manifest>

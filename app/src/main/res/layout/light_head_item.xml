@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#000"
+    android:orientation="vertical">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="1dp"
+        android:background="#fff"
+        android:orientation="horizontal">
+        <TextView
+            android:gravity="center"
+            android:text="路口"
+            style="@style/text_style1"
+            android:layout_weight="1"
+            android:width="0dp" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:background="#000" />
+        <TextView
+            android:gravity="center"
+            android:text="红灯时长/s"
+            style="@style/text_style1"
+            android:layout_weight="1"
+            android:width="0dp" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:background="#000" />
+        <TextView
+            android:gravity="center"
+            android:text="绿灯时长/s"
+            style="@style/text_style1"
+            android:layout_weight="1"
+            android:width="0dp" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:background="#000" />
+
+        <TextView
+            android:text="黄灯时长/s"
+            android:gravity="center"
+            style="@style/text_style1"
+            android:layout_weight="1"
+            android:width="0dp" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:background="#000" />
+        <TextView
+            android:text="操作项"
+            android:gravity="center"
+            style="@style/text_style1"
+            android:layout_weight="1"
+            android:width="0dp" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:background="#000" />
+        <TextView
+            android:text="设置"
+            android:gravity="center"
+            style="@style/text_style1"
+            android:layout_weight="1"
+            android:width="0dp" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-<item
-    android:title="批量充值"
-    app:showAsAction="always"
-    android:orderInCategory="1"
-    >
-</item>
-
     <item
-        android:title="充值记录"
+        android:id="@+id/menu_numberSet"
+        android:title="号码设置"
         app:showAsAction="always"
-        android:orderInCategory="2">
-    </item>
+        android:orderInCategory="1">
 
+    </item>
 </menu>
