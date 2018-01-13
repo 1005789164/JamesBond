@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg"
-    android:gravity="center"
     android:orientation="vertical"
     tools:context="com.example.administrator.traffic.LoginActivity">
 
+    <include layout="@layout/layout_toolbar"></include>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical">
 
         <LinearLayout
@@ -25,56 +26,59 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:hint="用户名" />
+                android:hint="用户名"
+                android:inputType="text" />
 
             <EditText
                 android:id="@+id/et_user_pwd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="密码" />
+                android:hint="密码"
+                android:inputType="textPassword" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="500dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-            <CheckBox
-                android:id="@+id/cb_auto_login"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="100dp"
-                android:text="自动登录" />
+            android:layout_marginTop="20dp">
 
             <CheckBox
                 android:id="@+id/cb_save_pwd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
                 android:text="记住密码" />
-        </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/cb_auto_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="自动登录" />
+        </RelativeLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="500dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/bt_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="  登  录  " />
+
+            <Button
 
                 android:id="@+id/bt_register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="100dp"
-                android:text="注册" />
-
-            <Button
-                android:id="@+id/bt_login"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="登录" />
+                android:layout_weight="0.5"
+                android:text="  注  册  " />
         </LinearLayout>
 
 
