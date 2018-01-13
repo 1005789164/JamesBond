@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     Button bt_register, bt_login;
     CheckBox cb_auto_login, cb_save_pwd;
     View view;
-    static final int REQUST_CODE=31;
+    public static final int LOGINACTIVITY_CODE=31;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -181,7 +181,7 @@ public class LoginActivity extends AppCompatActivity {
             object.put("username", user_name);
             object.put("password", user_pwd);
             String url = "user_login.do";
-            HttpThread thread = new HttpThread(url, object.toString(), mhandler,REQUST_CODE);
+            HttpThread thread = new HttpThread(url, object.toString(), mhandler,LOGINACTIVITY_CODE);
             thread.start();
 
         } catch (JSONException e) {
@@ -193,7 +193,7 @@ public class LoginActivity extends AppCompatActivity {
     Handler mhandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            if (msg.what == 200) {
+            if (msg.what == LOGINACTIVITY_CODE) {
                 try {
                     JSONObject jsonObject = new JSONObject(msg.obj.toString());
                     String str = jsonObject.getString("result");

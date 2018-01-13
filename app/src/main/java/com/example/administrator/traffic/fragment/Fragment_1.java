@@ -159,7 +159,7 @@ public class Fragment_1 extends Fragment {
                 }else {
                     isSendTopUp=false;//发送一次充值记录
                     top_up_list.clear();
-                    Toast.makeText(getActivity(),"充值失败",Toast.LENGTH_SHORT).show();
+                 //   Toast.makeText(getActivity(),"充值失败",Toast.LENGTH_SHORT).show();
                 }
                 myAdapter.notifyDataSetChanged();
             }

@@ -8,6 +8,9 @@ import com.example.administrator.traffic.fragment.Fragment_2;
 import com.example.administrator.traffic.fragment.Fragment_3;
 import com.example.administrator.traffic.fragment.Fragment_5;
 
+import com.example.administrator.traffic.LoginActivity;
+import com.example.administrator.traffic.fragment.Fragment_8;
+
 /**
  * Created by Administrator on 2018/1/8.
  */
@@ -63,6 +66,13 @@ public class HttpThread extends Thread {
                     obtain.what = Fragment_5.fragment_5_handler_1;
                     obtain.obj=HttpHelper.getWebContext();
                     break;
+                case LoginActivity.LOGINACTIVITY_CODE:
+                    obtain.what=LoginActivity.LOGINACTIVITY_CODE;
+                    obtain.obj=HttpHelper.getWebContext();
+                    break;
+                case Fragment_8.fragment_8_handler:
+                    obtain.what=Fragment_8.fragment_8_handler;
+                    obtain.obj=HttpHelper.getWebContext();
             }
 
         }
