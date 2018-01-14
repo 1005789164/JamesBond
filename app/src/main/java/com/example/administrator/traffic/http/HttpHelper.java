@@ -1,31 +1,27 @@
 package com.example.administrator.traffic.http;
 
-import android.os.Handler;
+import android.os.Looper;
+import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.administrator.traffic.MyApp.MyApp;
+import com.example.administrator.traffic.util.SpUtil;
+import com.example.administrator.traffic.util.UIUtls;
 
 import org.json.JSONObject;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
 
 /**
  * Created by Administrator on 2018/1/8.
  */
 
 public class HttpHelper {
-    public static String  URL = "http://192.168.1.103:8080/transportservice/action/";
-
 
     public static String webContext;
     public final static String Get_Bus ="GetBusStationInfo.do";
@@ -35,6 +31,7 @@ public class HttpHelper {
     public static String Get_Light="GetTrafficLightConfigAction.do";
     public static String Set_Light_Time="SetTrafficLightNowStatus.do";
     public static String Get_Violation="traffic_violations.do";
+    private static String URL;
 
     public static String getWebContext() {
         return webContext;
@@ -48,6 +45,11 @@ public class HttpHelper {
 
     public synchronized static int post(String Url, String strjson){
         try {
+            String IP = SpUtil.getString(UIUtls.getContext(),"ip","");
+
+            if(!TextUtils.isEmpty(IP)){
+                URL = "http://"+IP+":8080/transportservice/action/";
+            }
             URL url = new URL(URL+Url);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestProperty("Content-Type","text/html");
@@ -76,7 +78,10 @@ public class HttpHelper {
                 Log.e("http","获取数据"+getWebContext());
             }
         } catch (Exception e) {
-            MyApp.getInstance().getHandler().sendEmptyMessage(404);
+//            Looper.prepare();
+            Log.d("tag","-------------");
+
+//            Looper.loop();
             e.printStackTrace();
         }
         return code;

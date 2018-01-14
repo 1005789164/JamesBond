@@ -1,11 +1,13 @@
 package com.example.administrator.traffic.fragment;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -13,6 +15,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.telephony.SmsManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -43,7 +46,7 @@ public class Fragment_9 extends Fragment {
 
 
         //加载menu中的菜单
-        mainActivity.toolbar.inflateMenu(R.menu.sos_menu);
+
         ((TextView) mainActivity.toolbar.findViewById(R.id.tv_tb_title)).setText("创意设计");
 
         //设置toolbar主菜单的监听
@@ -101,6 +104,7 @@ public class Fragment_9 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
+        mainActivity.toolbar.inflateMenu(R.menu.sos_menu);
         View view = inflater.inflate(R.layout.fragment_9, null);
         return view;
     }

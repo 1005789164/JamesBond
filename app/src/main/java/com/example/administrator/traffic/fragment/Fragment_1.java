@@ -137,13 +137,17 @@ public class Fragment_1 extends Fragment {
                         SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat("yyyy-MM-dd");//充值时间
                         String date = simpleDateFormat1.format(new Date());//充值日期
                         Log.d("tag","时间>>>>>>"+time+".....data====="+date);
-
                         String UserName = SpUtil.getString(getActivity(), "user_name", "user1");//充值人
                         String hphm = carBeen.getHphm();//充值车牌号
                         //需要取得充值金额  有充值小车号
                         int banlance = carBeen.getBanlance();//充值前余额
                         int money =banlance+gold;
-                        str="{\"date\":"+"\""+date+"\""+",\"UserName\":"+"\""+UserName+"\""+",\"hphm\":"+"\""+hphm+"\""+",\"gold\":"+"\""+gold+"\""+",\"money\":"+"\""+money+"\""+",\"time\":"+"\""+time+"\""+"}";
+                        str="{\"date\":"+"\""+date+"\""
+                                +",\"UserName\":"+"\""+UserName+"\""
+                                +",\"hphm\":"+"\""+hphm+"\""+",\"gold\":"+"\""+gold+"\""
+                                +",\"money\":"+"\""+money+"\""
+                                +",\"time\":"+"\""+time+"\""+"}";
+
                         Log.d("tag","充值记录================"+str);
                         str_list.add(str);
                         Log.d("tag","充值记录================"+str_list.toString());
@@ -155,7 +159,6 @@ public class Fragment_1 extends Fragment {
                     Log.e("tag","car_top_up 的值==="+car_top_up.toString());
                         Net();
                     isTopUp=false;  //充值成功清除id
-
                 }else {
                     isSendTopUp=false;//发送一次充值记录
                     top_up_list.clear();
@@ -371,9 +374,7 @@ public class Fragment_1 extends Fragment {
                 this.tv_car_balance = (TextView) rootView.findViewById(R.id.tv_car_balance);
                 this.ll_car_root = (LinearLayout)rootView.findViewById(R.id.ll_car_root);
             }
-
         }
-
     }
 
 
@@ -390,6 +391,7 @@ public class Fragment_1 extends Fragment {
                 String trim = et_car_top_gold.getText().toString().trim();
                 gold = Integer.parseInt(trim);
                 if(!TextUtils.isEmpty(trim)&&(gold <=999)&&(gold >=1)){
+                    isSendTopUp=true;
                     Log.d("car_id","小车id的值=====按下确定"+car_id.toString());
                            int i=0;
                           while (i<car_id.size()){
@@ -433,21 +435,7 @@ public class Fragment_1 extends Fragment {
         }
         HttpThread httpThread = new HttpThread(HttpHelper.Set_Car_top_up, "{'CarId':" + car_id + ",'Money':" + gold + "}", handler2,fragment_1_handler_2);
         httpThread.start();
-
-    }
-
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-
-    }
+}
 
     @Override
     public void onDestroy() {

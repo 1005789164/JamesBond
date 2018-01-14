@@ -43,7 +43,7 @@ import java.util.TimerTask;
 
 public class Fragment_2 extends Fragment {
     public final static int fragment_2_handler_1=201;
-
+    private boolean isAddll = true;
     private String[] BusStance_Name = new String[]{
             "中医医院", "联想大道"
     };
@@ -57,20 +57,9 @@ public class Fragment_2 extends Fragment {
             if (msg.what == fragment_2_handler_1) {
                 LoadBean(msg);
              //   busStanceList=temList;
-                if (busStanceList.size() >= 2) {
-                    for (int i = 0; i < busStanceList.size(); i++) {
-                        ArrayList<BusBean> busBeen = busStanceList.get(i);
-                        Collections.sort(busBeen,new MySort());
-                    }
-                    if (myAdapter == null) {
-                        myAdapter = new MyAdapter();
-                        ex_bus_list_view.setAdapter(myAdapter);
-                    } else {
-                        myAdapter.notifyDataSetChanged();
-                    }
-                    myAdapter.notifyDataSetChanged();
-                }
+
             }
+
         }
     };
     private MyAdapter myAdapter;
@@ -103,11 +92,31 @@ public class Fragment_2 extends Fragment {
                 busBean.setDistance(Integer.parseInt(jo1.getString("Distance")));
                 Log.d("tag","busBean=========="+busBean.toString());
                 busBeenlist.add(busBean);
+            }
+            temList.add(busBeenlist);
+            if(temList.size()==2){
+                busStanceList = new ArrayList<>();//装站台
+                busStanceList.addAll(temList);
+                isAddll=true;
+                if (busStanceList.size() == 2) {
+                    for (int i = 0; i < busStanceList.size(); i++) {
+                        ArrayList<BusBean> busBeen = busStanceList.get(i);
+                        Collections.sort(busBeen,new MySort());
+                    }
+                    if (myAdapter == null) {
+                        myAdapter = new MyAdapter();
+                        ex_bus_list_view.setAdapter(myAdapter);
+                    } else {
+                        myAdapter.notifyDataSetChanged();
+                    }
+                    myAdapter.notifyDataSetChanged();
+                }
 
             }
-           // temList.add(busBeenlist);
-            busStanceList=temList;
-            busStanceList.add(busBeenlist);
+
+          //  busStanceList.add(busBeenlist);
+          //  Log.d("tag","公交站数量>>>>>>>>>>>>>>>>>>"+busStanceList.size());
+//            busStanceList.add(busBeenlist);
            // Log.d("tag","busStanceList=========="+busStanceList.size());
 
         } catch (JSONException e) {
@@ -140,10 +149,13 @@ public class Fragment_2 extends Fragment {
     private void initData() {
 
         for (int i = 1; i < 3; i++) {
-            if(i==1)temList.clear();
+            if(isAddll){
+                isAddll=false;
+                temList.clear();
+            }
             Net1(i);
         }
-        temList.clear();
+        //temList.clear();
     }
 
     private void Net1(int id) {
@@ -156,7 +168,7 @@ public class Fragment_2 extends Fragment {
         //临时装站台
         temList = new ArrayList<>();
 
-        busStanceList = new ArrayList<>();//装站台
+
         ex_bus_list_view = (ExpandableListView) inflate.findViewById(R.id.ex_bus_list_view);
         View bus_head_layout = View.inflate(getActivity(), R.layout.bus_head_layout, null);
         View bt_bus_des = bus_head_layout.findViewById(R.id.bt_bus_des);
@@ -188,8 +200,6 @@ public class Fragment_2 extends Fragment {
                 dialog.dismiss();
             }
         });
-
-
 //        lv_bus_people.addHeaderView();
 //        dialog.setView();
     }

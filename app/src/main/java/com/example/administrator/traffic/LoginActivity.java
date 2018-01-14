@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.example.administrator.traffic.MyApp.MyApp;
 import com.example.administrator.traffic.http.HttpThread;
 import com.example.administrator.traffic.util.SpUtil;
+import com.example.administrator.traffic.util.UIUtls;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -79,9 +80,11 @@ public class LoginActivity extends AppCompatActivity {
                         }else {
                             //检查ip合法性
                            boolean b= MyApp.getInstance().checkIp(str_ip);
+                            Log.d("tag","str_ip>>>>>>>"+str_ip);
                             if(b){
                                 //储存到sp
                                 SpUtil.putString(LoginActivity.this,"ip",str_ip);
+                                MyApp.getInstance().setIp(str_ip);
                                 //关闭dialog
                                 dialog.dismiss();
                             }else {
@@ -132,7 +135,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void getIpInfo(){
-        String ip=SpUtil.getString(LoginActivity.this,"ip","");
+        String ip=SpUtil.getString(UIUtls.getContext(),"ip","");
         if(!TextUtils.isEmpty(ip)){
             String [] ips=ip.split("\\.");
             ((EditText)view.findViewById(R.id.et_ip1)).setText(ips[0]);

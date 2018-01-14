@@ -3,6 +3,7 @@ package com.example.administrator.traffic.http;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 
@@ -55,8 +56,10 @@ public class HttpIcon  {
                 Log.e("httpIcon","BitMap====");
             }
         } catch (Exception e) {
-            MyApp.getInstance().handler.sendEmptyMessage(404);
-            e.printStackTrace();
+//                   Looper.prepare();
+//                   MyApp.getInstance().mHandler.sendEmptyMessage(404);
+//                    Looper.loop();
+                    e.printStackTrace();
         }
         handler.sendMessage(obtain);
             }

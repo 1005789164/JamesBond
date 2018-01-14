@@ -22,6 +22,13 @@ public class RechargeBean {
     private String money;
     private String time;
 
+    @Override
+    public String toString() {
+        return "{\"date\":"+"\""+date+"\""+",\"UserName\":"+"\""+UserName+"\""+",\"hphm\":"+"\""+hphm+"\""
+                +",\"gold\":"+"\""+gold+"\""+",\"money\":"
+                +"\""+money+"\""+",\"time\":"+"\""+time+"\""+"}";
+    }
+
     public String getDate() {
         return date;
     }

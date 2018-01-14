@@ -4,7 +4,10 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.widget.Toast;
+
+import com.example.administrator.traffic.util.UIUtls;
 
 /**
  * Created by Administrator on 2018/1/8.
@@ -15,6 +18,12 @@ public class MyApp extends Application {
 
     //---------------------------------------------------------------------
     private static String userRole;
+    public Handler mHandler;
+
+    public Handler getmHandler() {
+        return mHandler;
+    }
+
     public String getUserRole() {
         return userRole;
     }
@@ -27,25 +36,18 @@ public class MyApp extends Application {
         return myApp;
     }
 
-    public static Context context;
+    public static   Context context;
 
-    public static Context getContext() {
+    public  Context getContext() {
         return context;
     }
 
-    public  Handler getHandler() {
-        return handler;
-    }
 
-    public  Handler handler = new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            Toast.makeText(context,"请检查网络",Toast.LENGTH_SHORT).show();
-        }
-    };
+
     public String Ip;
     public String Url ;
+
+
     public String getIp() {
         return Ip;
     }
@@ -63,8 +65,8 @@ public class MyApp extends Application {
     public boolean checkIp(String ip){
        String str = "^(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|[1-9])\\."
                 + "(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\."
-               + "^(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\."
-               + "^(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)$";
+               + "(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\."
+               + "(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)$";
         if(ip.matches(str)){
             return true;
         }else {
@@ -76,5 +78,14 @@ public class MyApp extends Application {
     public void onCreate() {
         super.onCreate();
         context = getApplicationContext();
+//        mHandler = new Handler() {
+//            @Override
+//            public void handleMessage(Message msg) {
+//                super.handleMessage(msg);
+//                Toast.makeText(UIUtls.getContext(), "请检查网络", Toast.LENGTH_SHORT).show();
+//            }
+//        };
+        mHandler=new Handler();
+
     }
 }

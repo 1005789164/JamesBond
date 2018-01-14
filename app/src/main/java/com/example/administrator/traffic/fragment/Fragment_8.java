@@ -1,20 +1,16 @@
 package com.example.administrator.traffic.fragment;
 
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.view.Gravity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RadioButton;
@@ -36,6 +32,7 @@ import java.util.ArrayList;
 
 public class Fragment_8 extends Fragment implements View.OnClickListener {
     ArrayList<RechargeBean> list = new ArrayList<>();
+    private int gold=0;//充值总金钱
     private RadioButton rb_people_1,rb_people_2,rb_people_3;
     private View view_people_1,view_people_2,view_people_3;
     private LinearLayout ll_people_1,ll_people_2,ll_people_3,tabhost;
@@ -46,6 +43,8 @@ public class Fragment_8 extends Fragment implements View.OnClickListener {
     public static final int fragment_8_handler=801;
     private LinearLayout ll_people_car;
 
+    private TextView tv_people2_gold;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +53,8 @@ public class Fragment_8 extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
         View view = inflater.inflate(R.layout.fragment_8, null);
         initView(view);
         initData();
@@ -61,6 +62,10 @@ public class Fragment_8 extends Fragment implements View.OnClickListener {
     }
 
     private void initView(View view) {
+        tv_people2_gold = (TextView) view.findViewById(R.id.tv_people2_gold);
+
+
+
         rb_people_1 = (RadioButton) view.findViewById(R.id.rb_people_1);
         rb_people_1.setOnClickListener(this);
         view_people_1 = (View) view.findViewById(R.id.view_people_1);
@@ -93,6 +98,7 @@ public class Fragment_8 extends Fragment implements View.OnClickListener {
         tv_people_name= (TextView) view.findViewById(R.id.tv_people_name);
         tv_people_phoneNumber= (TextView) view.findViewById(R.id.tv_people_phoneNumber);
         ll_people_car = (LinearLayout) view.findViewById(R.id.ll_people_car);
+
     }
 
     private void initData() {
@@ -127,24 +133,48 @@ public class Fragment_8 extends Fragment implements View.OnClickListener {
 //        }
 
         try {
-            JSONArray ja=new JSONArray(SpUtil.getString(getActivity(),"car_top_up",""));
-            for (int i = 0; i <ja.length() ; i++) {
-                RechargeBean rechargeBean = new RechargeBean();
-                JSONObject jsonObject = ja.getJSONObject(i);
-                rechargeBean.setDate(jsonObject.getString("data"));
-                rechargeBean.setUserName(jsonObject.getString("UserName"));
-                rechargeBean.setHphm(jsonObject.getString("hphm"));
-                rechargeBean.setGold(jsonObject.getString("gold"));
-                rechargeBean.setMoney(jsonObject.getString("money"));
-                rechargeBean.setTime(jsonObject.getString("time"));
-            }
+            String car_top_up_list = SpUtil.getString(getActivity(), "car_top_up_list", "");//历史记录
+            String car_top_up = SpUtil.getString(getActivity(), "car_top_up", "");//获取当前充值记录
+            Log.d("tag","获取充值记录.>>>>>>"+SpUtil.getString(getActivity(),"car_top_up",""));
+            if(!TextUtils.isEmpty(car_top_up_list))
+            LoadData(car_top_up_list);
+            if(!TextUtils.isEmpty(car_top_up))
+                LoadData(car_top_up);
 //            tv_recharge_item_date.setText(item.getString("date"));
+            SpUtil.putString(getActivity(),"car_top_up_list",list.toString());
+            Log.d("tag","获取充值记录.暂时缓存>>>>>>"+list.toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        //充值总额
+        tv_people2_gold.setText("总支出:"+gold);
+
         MyAdapter adapter = new MyAdapter(list);
         lv_people_2.setAdapter(adapter);
-        
+        //获得充值总额
+
+    }
+
+    /**
+     * 解析充值记录
+     * @param json 获取充值记录json字符串
+     * @throws JSONException
+     */
+    private void LoadData(String json) throws JSONException {
+        JSONArray ja=new JSONArray(json);
+        for (int i = 0; i <ja.length() ; i++) {
+            RechargeBean rechargeBean = new RechargeBean();
+            JSONObject jsonObject = ja.getJSONObject(i);
+            rechargeBean.setDate(jsonObject.getString("date"));
+            rechargeBean.setUserName(jsonObject.getString("UserName"));
+            rechargeBean.setHphm(jsonObject.getString("hphm"));
+            rechargeBean.setGold(jsonObject.getString("gold"));//应该记录支出的金钱
+            rechargeBean.setMoney(jsonObject.getString("money"));
+            rechargeBean.setTime(jsonObject.getString("time"));
+            gold+=Integer.parseInt(rechargeBean.getGold());
+            list.add(0,rechargeBean);
+        }
+
     }
 
     @Override
@@ -208,11 +238,9 @@ public class Fragment_8 extends Fragment implements View.OnClickListener {
             super(list);
         }
 
-
-
-
         @Override
         public View setView(int position, View convertView, ViewGroup parent) {
+            Log.d("tag","刷新界面>>>>>+list==="+list.size());
             View view = LayoutInflater.from(getContext()).inflate(R.layout.list_item_recharge, null);
             tv_recharge_item_date = (TextView) view.findViewById(R.id.tv_recharge_item_date);
             tv_recharge_item_week = (TextView) view.findViewById(R.id.tv_recharge_item_week);
@@ -222,11 +250,12 @@ public class Fragment_8 extends Fragment implements View.OnClickListener {
             tv_recharge_item_money = (TextView) view.findViewById(R.id.tv_recharge_item_money);
             tv_recharge_item_date2 = (TextView) view.findViewById(R.id.tv_recharge_item_date2);
             ll_recharge = (LinearLayout) view.findViewById(R.id.ll_recharge);
+
             RechargeBean item = (RechargeBean) getItem(position);
             tv_recharge_item_carnumber.setText(item.getHphm());
             tv_recharge_item_people.setText(item.getUserName());
             tv_recharge_item_date.setText(item.getDate());
-            tv_recharge_item_date2.setText(item.getDate());
+            tv_recharge_item_date2.setText(item.getTime());
             tv_recharge_item_money.setText(item.getMoney());
             tv_recharge_item_recharge.setText(item.getGold());
 
