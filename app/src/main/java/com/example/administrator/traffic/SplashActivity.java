@@ -17,8 +17,8 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         boolean isFirst=SpUtil.getBoolean(SplashActivity.this,"first",true);
-
         if(isFirst){
+            SpUtil.putBoolean(SplashActivity.this,"first",false);
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {

@@ -28,6 +28,7 @@
                 android:textSize="80sp" />
 
             <TextView
+                android:id="@+id/tvtoday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="今天：12-24°C"

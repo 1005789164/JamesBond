@@ -43,8 +43,6 @@ public class Fragment_9 extends Fragment {
         //从SpUtil里读取数据并赋值给sos和drive
         number_sos = SpUtil.getString(getActivity(), "number_sos", "13915674589");
         number_drive = SpUtil.getString(getActivity(), "number_drive", "13800000000");
-
-
         //加载menu中的菜单
 
         ((TextView) mainActivity.toolbar.findViewById(R.id.tv_tb_title)).setText("创意设计");

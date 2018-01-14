@@ -29,6 +29,7 @@ import com.example.administrator.traffic.fragment.Fragment_2;
 import com.example.administrator.traffic.fragment.Fragment_3;
 import com.example.administrator.traffic.fragment.Fragment_5;
 import com.example.administrator.traffic.fragment.Fragment_4;
+import com.example.administrator.traffic.fragment.Fragment_7;
 import com.example.administrator.traffic.fragment.Fragment_8;
 import com.example.administrator.traffic.fragment.Fragment_9;
 import com.example.administrator.traffic.fragment.Fragment_6;
@@ -118,10 +119,12 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 FragmentManager supportFragmentManager = getSupportFragmentManager();
                  FragmentTransaction transaction1 = supportFragmentManager.beginTransaction();
+                Bundle bundle = new Bundle();
                 switch (position) {
                     case 0:
                         tv_tb_title.setText("账号管理");
                         //overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out); //系统自带淡入淡出效果
+
                         transaction1.replace(R.id.fl_main,new Fragment_1(),"car");
                         break;
                     case 1:

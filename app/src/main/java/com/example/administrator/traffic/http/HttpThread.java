@@ -6,9 +6,11 @@ import android.os.Message;
 import com.example.administrator.traffic.fragment.Fragment_1;
 import com.example.administrator.traffic.fragment.Fragment_2;
 import com.example.administrator.traffic.fragment.Fragment_3;
+import com.example.administrator.traffic.fragment.Fragment_4;
 import com.example.administrator.traffic.fragment.Fragment_5;
 
 import com.example.administrator.traffic.LoginActivity;
+import com.example.administrator.traffic.fragment.Fragment_6;
 import com.example.administrator.traffic.fragment.Fragment_8;
 
 /**
@@ -62,8 +64,16 @@ public class HttpThread extends Thread {
                     obtain.what = Fragment_3.fragment_3_handler_2;
                     obtain.obj=HttpHelper.getWebContext();
                     break;
+                case Fragment_4.fragment_4_handler_1:
+                    obtain.what = Fragment_4.fragment_4_handler_1;
+                    obtain.obj=HttpHelper.getWebContext();
+                    break;
                 case Fragment_5.fragment_5_handler_1:
                     obtain.what = Fragment_5.fragment_5_handler_1;
+                    obtain.obj=HttpHelper.getWebContext();
+                    break;
+                case Fragment_6.fragment_6_handler_1:
+                    obtain.what = Fragment_6.fragment_6_handler_1;
                     obtain.obj=HttpHelper.getWebContext();
                     break;
                 case LoginActivity.LOGINACTIVITY_CODE:
