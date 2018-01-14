@@ -143,9 +143,7 @@ public class MainActivity extends AppCompatActivity {
                     case 7:
                         transaction1.replace(R.id.fl_main,new Fragment_8(),"");
                         break;
-                    case 8:
-                        transaction1.replace(R.id.fl_main,new Fragment_9(),"origina");
-                        break;
+
                 }
                 transaction1.commit();
                 slidingMenu.toggle();

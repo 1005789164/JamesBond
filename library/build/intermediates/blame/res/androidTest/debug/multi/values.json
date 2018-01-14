@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "F:\\Demo\\newCarDemo\\library\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
+        "outputFile": "F:\\Demo\\NewCar\\library\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 1130
                 },
                 "from": {
-                    "file": "F:\\Demo\\newCarDemo\\library\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "file": "F:\\Demo\\NewCar\\library\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
