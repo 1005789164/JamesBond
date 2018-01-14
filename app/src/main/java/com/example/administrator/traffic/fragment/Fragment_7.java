@@ -39,7 +39,7 @@ public class Fragment_7 extends Fragment {
             , @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_7, null);
         initView(view);
-        initData();
+
         slidingMenu = ((MainActivity) getActivity()).slidingMenu;
         slidingMenu.addIgnoredView(vp);
         return view;
