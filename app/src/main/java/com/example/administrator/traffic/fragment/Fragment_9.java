@@ -35,7 +35,7 @@ public class Fragment_9 extends Fragment {
     MainActivity mainActivity;
     Button bt_dj, bt_sos;
     String number_sos, number_drive;
-
+//
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
