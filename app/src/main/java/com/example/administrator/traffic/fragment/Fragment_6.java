@@ -52,7 +52,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Fragment_6 extends Fragment {
-    public static final int fragment_6_handler_1=601;
+    public static final int fragment_6_handler_1 = 601;
     private SlidingMenu menu;
     private LineChart lc;
     private ViewPager vp;
@@ -89,26 +89,26 @@ public class Fragment_6 extends Fragment {
     }
 
     private void Net() {
-        new HttpThread("getWeather.do","",handler1,Fragment_6.fragment_6_handler_1).start();
+        new HttpThread("getWeather.do", "", handler1, Fragment_6.fragment_6_handler_1).start();
     }
 
-    private Handler handler1=new Handler(){
+    private Handler handler1 = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            if(msg.what==Fragment_6.fragment_6_handler_1){
+            if (msg.what == Fragment_6.fragment_6_handler_1) {
                 try {
-                    JSONObject json=new JSONObject(((String)msg.obj).substring(9).replace(")",""));
-                    json=json.getJSONObject("life");
-                    json=json.getJSONObject("info");
-                    JSONArray jsonArray= new JSONObject(((String)msg.obj).substring(9).replace(")",""))
+                    JSONObject json = new JSONObject(((String) msg.obj).substring(9).replace(")", ""));
+                    json = json.getJSONObject("life");
+                    json = json.getJSONObject("info");
+                    JSONArray jsonArray = new JSONObject(((String) msg.obj).substring(9).replace(")", ""))
                             .getJSONArray("hourly_forecast");
-                    String[] strs=new String[24];
-                    for (int i=0;i<=23;i++){
-                        strs[i]=jsonArray.getJSONObject(i).getString("temperature");
+                    String[] strs = new String[24];
+                    for (int i = 0; i <= 23; i++) {
+                        strs[i] = jsonArray.getJSONObject(i).getString("temperature");
                     }
                     Arrays.sort(strs);
-                    tvtoday.setText("今天："+strs[0]+"-"+strs[23]+"°C");
-                    tvair.setText(new JSONObject(((String)msg.obj).substring(9).replace(")","")).getJSONObject("realtime").getJSONObject("weather").getString("temperature")+"°");
+                    tvtoday.setText("今天：" + strs[0] + "-" + strs[23] + "°C");
+                    tvair.setText(new JSONObject(((String) msg.obj).substring(9).replace(")", "")).getJSONObject("realtime").getJSONObject("weather").getString("temperature") + "°");
                     ziwaixiang1.setText(json.getJSONArray("ziwaixian").getString(0));
                     ziwaixiang2.setText(json.getJSONArray("ziwaixian").getString(1));
                     ganmao1.setText(json.getJSONArray("ganmao").getString(0));
@@ -119,23 +119,23 @@ public class Fragment_6 extends Fragment {
                     yundong2.setText(json.getJSONArray("yundong").getString(1));
                     kongqi1.setText(json.getJSONArray("wuran").getString(0));
                     kongqi2.setText(json.getJSONArray("wuran").getString(1));
-                    Log.e("xxx",json.toString());
+                    Log.e("xxx", json.toString());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                Log.e("xxx",((String)msg.obj).substring(9).replace(")",""));
+                Log.e("xxx", ((String) msg.obj).substring(9).replace(")", ""));
             }
         }
     };
 
     @Override
     public void onResume() {
-        (timer=new Timer()).schedule(new TimerTask() {
+        (timer = new Timer()).schedule(new TimerTask() {
             @Override
             public void run() {
                 Net();
             }
-        },300,3000);
+        }, 300, 3000);
         super.onResume();
     }
 
@@ -212,7 +212,7 @@ public class Fragment_6 extends Fragment {
         humidityLinc.setDescription("");
         humidityLinc.setDrawGridBackground(false);
         humidityLinc.setDrawBorders(false);
-        humidityLinc.setBackgroundColor(Color.rgb(253,253,254));
+        humidityLinc.setBackgroundColor(Color.rgb(253, 253, 254));
         XAxis xAxis = humidityLinc.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setDrawGridLines(false);
@@ -434,7 +434,7 @@ public class Fragment_6 extends Fragment {
         airBarc.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
             @Override
             public void onValueSelected(Entry entry, int i, Highlight highlight) {
-                airWeather.setText("过去一分钟的最差值："+entry.getVal());
+                airWeather.setText("过去一分钟的最差值：" + entry.getVal());
             }
 
             @Override
@@ -553,7 +553,7 @@ public class Fragment_6 extends Fragment {
         yundong2 = (TextView) view.findViewById(R.id.yundong2);
         kongqi1 = (TextView) view.findViewById(R.id.kongqi1);
         kongqi2 = (TextView) view.findViewById(R.id.kongqi2);
-        tvair=(TextView) view.findViewById(R.id.tvair);
-        tvtoday= (TextView) view.findViewById(R.id.tvtoday);
+        tvair = (TextView) view.findViewById(R.id.tvair);
+        tvtoday = (TextView) view.findViewById(R.id.tvtoday);
     }
 }

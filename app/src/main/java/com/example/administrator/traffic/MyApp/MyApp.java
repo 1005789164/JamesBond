@@ -14,7 +14,7 @@ import com.example.administrator.traffic.util.UIUtls;
  */
 
 public class MyApp extends Application {
-    private  static MyApp myApp;
+    private static MyApp myApp;
 
     //---------------------------------------------------------------------
     private static String userRole;
@@ -27,30 +27,34 @@ public class MyApp extends Application {
     public String getUserRole() {
         return userRole;
     }
-    public void setUserRole(String userRole) { this.userRole= userRole;}
+
+    public void setUserRole(String userRole) {
+        this.userRole = userRole;
+    }
+
     //---------------------------------------------------------------------
-    public static MyApp getInstance(){
-        if(myApp==null){
+    public static MyApp getInstance() {
+        if (myApp == null) {
             myApp = new MyApp();
         }
         return myApp;
     }
 
-    public static   Context context;
+    public static Context context;
 
-    public  Context getContext() {
+    public Context getContext() {
         return context;
     }
 
 
-
     public String Ip;
-    public String Url ;
+    public String Url;
 
 
     public String getIp() {
         return Ip;
     }
+
     public void setIp(String ip) {
         Ip = ip;
     }
@@ -62,14 +66,15 @@ public class MyApp extends Application {
     public void setUrl(String url) {
         Url = url;
     }
-    public boolean checkIp(String ip){
-       String str = "^(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|[1-9])\\."
+
+    public boolean checkIp(String ip) {
+        String str = "^(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|[1-9])\\."
                 + "(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\."
-               + "(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\."
-               + "(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)$";
-        if(ip.matches(str)){
+                + "(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\."
+                + "(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)$";
+        if (ip.matches(str)) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }
@@ -85,7 +90,7 @@ public class MyApp extends Application {
 //                Toast.makeText(UIUtls.getContext(), "请检查网络", Toast.LENGTH_SHORT).show();
 //            }
 //        };
-        mHandler=new Handler();
+        mHandler = new Handler();
 
     }
 }

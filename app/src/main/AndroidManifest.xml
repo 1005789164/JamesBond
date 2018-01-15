@@ -16,12 +16,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        </activity>
+            android:name=".SplashActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
 
         <activity
-            android:name=".SplashActivity"
+            android:name=".MainActivity"
             android:theme="@style/fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,17 +31,14 @@
         <activity
             android:name=".LoginActivity"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
         <activity android:name=".RegisterActivity" />
 
         <activity
             android:name=".GuideActiivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
 
-        <activity android:name=".ViolationActivity">
-        </activity>
+        <activity android:name=".ViolationActivity"></activity>
         <activity android:name=".ViolationPhotoActivity" />
 
     </application>

@@ -39,7 +39,7 @@ public class Fragment_9 extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mainActivity=(MainActivity)getActivity();
+        mainActivity = (MainActivity) getActivity();
         //从SpUtil里读取数据并赋值给sos和drive
         number_sos = SpUtil.getString(getActivity(), "number_sos", "13915674589");
         number_drive = SpUtil.getString(getActivity(), "number_drive", "13800000000");
@@ -106,7 +106,6 @@ public class Fragment_9 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_9, null);
         return view;
     }
-
 
 
     @Override
