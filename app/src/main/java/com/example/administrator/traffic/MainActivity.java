@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
                     case 8:
                         tv_tb_title.setText("创意设计");
                         transaction1.replace(R.id.fl_main, new Fragment_9(), "origina");
-                        break;
+                        break;//
                 }
                 transaction1.commit();
                 slidingMenu.toggle();
